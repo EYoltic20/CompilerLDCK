@@ -76,7 +76,7 @@ def t_ID(t):
     return t
 def t_CTE_STRING(t):
     r'\"([^\\\n]|(\\.))*?\"'
-    t.value = t.value[1:-1]  # Remove the quotes
+    t.value = t.value[1:-1]
     return t
 # Regular expression for matching numbers
 def t_CTE_INT(t):
@@ -113,10 +113,14 @@ def t_error(t):
 # a = lex.lex(object=DuckLexer)
 
 lexer = lex.lex()
+# namef = "test.txt"
+# file = open(namef,'r')
+# s = file.read()
+# lexer.input(s)
 
 
-# data = "print(cola)"
-# lexer.input(data)
+# # data = "print(cola)"
+# # lexer.input(data)
 
 # while True:
 #     token = lexer.token()

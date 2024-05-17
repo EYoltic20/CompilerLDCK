@@ -1,8 +1,7 @@
 program test;
 var a, b, c : int;
-void valer(a:int){
+void valer(a:int,){
     a = 1;
-    print("hola")
-
+    print ("hola");
 };
 end

@@ -22,5 +22,3 @@ class DirectorioFunciones:
             'direccion_memoria': direccion_memoria
         }
 
-
-directorio = DirectorioFunciones()
