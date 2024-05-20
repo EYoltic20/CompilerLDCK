@@ -1,7 +1,9 @@
 program test;
-var a, b, c : int;
-void valer(a:int,){
+
+void valer(){
+    var a, b, c : int;
     a = 1;
     print ("hola");
 };
+
 end

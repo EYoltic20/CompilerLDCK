@@ -46,6 +46,7 @@ tokens = [
     'CTE_FLOAT',
     'CTE_INT',
     'CTE_STRING',
+    'CTE_BOOL'
     # 'POINT'
 ] + list(RESERVED.values())
 

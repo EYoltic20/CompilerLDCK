@@ -4,18 +4,31 @@ from lexeer import tokens
 from direccionfunc import DirectorioFunciones
 # Instancia global del directorio de funciones
 directorio = DirectorioFunciones()
-stack_funciones = ['global']  # Pila para manejar el contexto de funciones
+stack_funciones = []  # Pila para manejar el contexto de funciones
+stack_vars={}
+stack_quadruplos=[]
+
+
 direcciones_memoria = {
     'int': 1000,
     'float': 2000,
     'bool': 3000,
-    'char': 4000
+    
 }
 
 def get_direccion_memoria(tipo):
     direccion = direcciones_memoria[tipo]
     direcciones_memoria[tipo] += 1
     return direccion
+
+def hashMap(var,tipo,dir_memoria,assign):
+    tvar = {
+        "var":var,
+        "tipo":tipo,
+        "direccion de memoria": dir_memoria,
+        "assign":assign
+    }    
+    return tvar
 
 precedence = (
     ('left', 'PLUS', 'MINUS'),
@@ -24,12 +37,18 @@ precedence = (
 )
 # ME FALTA VARS
 def p_empezar(p):
-    'empezar : PROGRAM ID SEMICOMMA var_or_func  END'
+    'empezar : PROGRAM ID SEMICOMMA  var_or_func  END'
+    
     print("Todo perfect")
     # p[0]=(p[1],p[2],p[3],p[4],p[5],p[6],p[7])
     
+#  AQUI AGREGAMOS PARA PODER ASSIGNAR LA VARIABLES GLOBALES
+# def p_var_global(p):
+#     '''var_global : vars var_global
+#                   | EMPTY'''
 
 def p_var_or_func(p):
+    # '''var_or_func : vars func_create'''    
     '''var_or_func : vars func_create
                    | func_create'''
     # if len(p) == 3 :
@@ -67,8 +86,12 @@ def p_assign(p):
               | ID EQ cte SEMICOMMA'''
     nombre_variable = p[1]
     expresion = p[3]
-    # Aquí debes validar el tipo y hacer la asignación
-    pass
+    # Primero verificamos que la variable si haya sido declarada y no spawneada de la nada
+    if stack_vars[nombre_variable]:
+        stack_vars[nombre_variable]["assign"] = expresion
+    else:
+        raise Exception(f"Variable {nombre_variable} no ha sido declarada linea ")
+    
 
 def p_cte(p):
     '''cte : CTE_INT
@@ -79,15 +102,34 @@ def p_funcs(p):
     'funcs : VOID ID LPAR func_vars RPAR   body  SEMICOMMA'
     # p[0]=(p[4],p[7],p[8])
     nombre_funcion = p[2]
-    tipo_retorno = 'void'
+    tipo_retorno = p[1]
     parametros = p[4]
     directorio.agregar_funcion(nombre_funcion, tipo_retorno, parametros)
+    
+    for key in stack_vars:
+  
+        variable = stack_vars[key]
+        
+        if variable['var'] != None:    
+            tipo = variable['tipo']
+            dir = variable['direccion de memoria']
+            assign = variable['assign']
+            if assign == None:
+                print(f"Variable {variable['var']} declarada pero no usada\t ")
+            directorio.agregar_variable(nombre_funcion, variable['var'], tipo, dir,assign)
+            
+    stack_vars.clear()
     stack_funciones.append(nombre_funcion)
+    
+    
+    
+    
   
 
 def p_func_vars(p):
-    '''func_vars : ID DOUBLEPOINT type  COMMA  func_vars
-                 |  EMPTY '''
+    '''func_vars : ID DOUBLEPOINT type    func_vars
+                 | COMMA func_vars
+                 | EMPTY '''
     if len(p) == 6:
         p[0] = [(p[1], p[3])] + p[5]
     else:
@@ -195,18 +237,28 @@ def p_lst_printing_options(p):
 def p_vars(p):
     '''vars : VAR lst_var''' 
     # p[0]=(p[1],p[2])
-
 def p_lst_var(p):
     
     '''lst_var : lst_id DOUBLEPOINT type SEMICOMMA 
                | EMPTY'''
-
-    if len(p) == 6:
-        nombre_funcion_actual = stack_funciones[-1]
-        tipo = p[3]
-        for var in p[1]:
+    tipo = p[3]
+    for var in p[1]:
+        if var != ",":
             direccion_memoria = get_direccion_memoria(tipo)
-            directorio.agregar_variable(nombre_funcion_actual, var, tipo, direccion_memoria)
+            hash = hashMap(var,tipo,direccion_memoria,None)
+            stack_vars[var]=hash
+        
+        
+    # if len(p)!=0:
+    #     if stack_funciones:
+            
+    #         nombre_funcion_actual = stack_funciones.pop()
+    #         tipo = p[3]
+    #         for var in p[1]:
+    #             direccion_memoria = get_direccion_memoria(tipo)
+    #             directorio.agregar_variable(nombre_funcion_actual, var, tipo, direccion_memoria)
+    #     else:
+    #         print(f"algo anda mal stack funciones: {stack_funciones}") 
 
 def p_lst_id(p):
     '''lst_id : ID lst_id
@@ -240,16 +292,14 @@ def p_error(p):
 
 
 # Construir el parser
-try:
-    namef = "test.txt"
-    file = open(namef,'r')
-    s = file.read()
-    file.close()
-    yacc.yacc()
-    result = yacc.parse(s)
-    print(stack_funciones)
-except Exception as e:
-    print(e.args)
+
+namef = "test.txt"
+file = open(namef,'r')
+s = file.read()
+file.close()
+yacc.yacc()
+result = yacc.parse(s)
+print(directorio.funciones)
 
 
 
