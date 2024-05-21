@@ -1,5 +1,9 @@
 Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 
+Unused terminals:
+
+    CTE_BOOL
+
 Grammar
 
 Rule 0     S' -> empezar
@@ -17,129 +21,132 @@ Rule 11    statment -> fcall
 Rule 12    statment -> fcall statment
 Rule 13    statment -> imprimir statment
 Rule 14    statment -> imprimir
-Rule 15    statment -> vars
-Rule 16    statment -> vars statment
-Rule 17    assign -> ID EQ expression SEMICOMMA
-Rule 18    assign -> ID EQ cte SEMICOMMA
-Rule 19    cte -> CTE_INT
-Rule 20    cte -> CTE_FLOAT
-Rule 21    funcs -> VOID ID LPAR func_vars RPAR body SEMICOMMA
-Rule 22    func_vars -> ID DOUBLEPOINT type func_vars
-Rule 23    func_vars -> COMMA func_vars
-Rule 24    func_vars -> EMPTY
-Rule 25    expression -> exp op
-Rule 26    op -> GT exp
-Rule 27    op -> GTE exp
-Rule 28    op -> LT exp
-Rule 29    op -> LTE exp
-Rule 30    op -> NT exp
-Rule 31    op -> EMPTY
-Rule 32    exp -> termino lopb
-Rule 33    lopb -> PLUS termino
-Rule 34    lopb -> MINUS termino
-Rule 35    lopb -> EMPTY
-Rule 36    termino -> factor lopa
-Rule 37    lopa -> TIMES factor
-Rule 38    lopa -> DIVIDE factor
-Rule 39    lopa -> EMPTY
-Rule 40    cycle -> WHILE body DO LPAR expression RPAR SEMICOMMA
-Rule 41    fcall -> ID LPAR list_exp RPAR SEMICOMMA
-Rule 42    list_exp -> expression list_exp
-Rule 43    list_exp -> EMPTY
-Rule 44    list_exp -> COMMA list_exp
-Rule 45    factor -> LPAR expression RPAR
-Rule 46    factor -> lopb id_cte
-Rule 47    factor -> id_cte
-Rule 48    id_cte -> ID
-Rule 49    id_cte -> cte
-Rule 50    conditions -> IF LPAR expression RPAR body haselse SEMICOMMA
-Rule 51    haselse -> ELSE body
-Rule 52    haselse -> EMPTY
-Rule 53    imprimir -> PRINT LPAR lst_printing_options RPAR SEMICOMMA
-Rule 54    lst_printing_options -> CTE_STRING COMMA lst_printing_options
-Rule 55    lst_printing_options -> expression
-Rule 56    lst_printing_options -> expression COMMA lst_printing_options
-Rule 57    lst_printing_options -> vars
-Rule 58    lst_printing_options -> vars COMMA lst_printing_options
-Rule 59    lst_printing_options -> CTE_STRING
-Rule 60    vars -> VAR lst_var
-Rule 61    lst_var -> lst_id DOUBLEPOINT type SEMICOMMA
-Rule 62    lst_var -> EMPTY
-Rule 63    lst_id -> ID lst_id
-Rule 64    lst_id -> COMMA lst_id
-Rule 65    lst_id -> EMPTY
-Rule 66    type -> INT
-Rule 67    type -> FLOAT
-Rule 68    type -> VOID
-Rule 69    EMPTY -> <empty>
+Rule 15    statment -> cycle statment
+Rule 16    statment -> cycle
+Rule 17    statment -> vars
+Rule 18    statment -> vars statment
+Rule 19    assign -> ID EQ expression SEMICOMMA
+Rule 20    assign -> ID EQ cte SEMICOMMA
+Rule 21    cte -> CTE_INT
+Rule 22    cte -> CTE_FLOAT
+Rule 23    funcs -> VOID ID LPAR func_vars RPAR body SEMICOMMA
+Rule 24    func_vars -> ID DOUBLEPOINT type func_vars
+Rule 25    func_vars -> COMMA func_vars
+Rule 26    func_vars -> EMPTY
+Rule 27    expression -> exp op
+Rule 28    op -> GT exp
+Rule 29    op -> GTE exp
+Rule 30    op -> LT exp
+Rule 31    op -> LTE exp
+Rule 32    op -> NT exp
+Rule 33    op -> EMPTY
+Rule 34    exp -> termino lopb
+Rule 35    lopb -> PLUS termino
+Rule 36    lopb -> MINUS termino
+Rule 37    lopb -> EMPTY
+Rule 38    termino -> factor lopa
+Rule 39    lopa -> TIMES factor
+Rule 40    lopa -> DIVIDE factor
+Rule 41    lopa -> EMPTY
+Rule 42    cycle -> WHILE body DO LPAR expression RPAR SEMICOMMA
+Rule 43    fcall -> ID LPAR list_exp RPAR SEMICOMMA
+Rule 44    list_exp -> expression list_exp
+Rule 45    list_exp -> EMPTY
+Rule 46    list_exp -> COMMA list_exp
+Rule 47    factor -> LPAR expression RPAR
+Rule 48    factor -> lopb id_cte
+Rule 49    factor -> id_cte
+Rule 50    id_cte -> ID
+Rule 51    id_cte -> cte
+Rule 52    conditions -> IF LPAR expression RPAR body haselse SEMICOMMA
+Rule 53    haselse -> ELSE body
+Rule 54    haselse -> EMPTY
+Rule 55    imprimir -> PRINT LPAR lst_printing_options RPAR SEMICOMMA
+Rule 56    lst_printing_options -> CTE_STRING COMMA lst_printing_options
+Rule 57    lst_printing_options -> expression
+Rule 58    lst_printing_options -> expression COMMA lst_printing_options
+Rule 59    lst_printing_options -> vars
+Rule 60    lst_printing_options -> vars COMMA lst_printing_options
+Rule 61    lst_printing_options -> CTE_STRING
+Rule 62    vars -> VAR lst_var
+Rule 63    lst_var -> lst_id DOUBLEPOINT type SEMICOMMA
+Rule 64    lst_var -> EMPTY
+Rule 65    lst_id -> ID lst_id
+Rule 66    lst_id -> COMMA lst_id
+Rule 67    lst_id -> EMPTY
+Rule 68    type -> INT
+Rule 69    type -> FLOAT
+Rule 70    type -> VOID
+Rule 71    EMPTY -> <empty>
 
 Terminals, with rules where they appear
 
-COMMA                : 23 44 54 56 58 64
-CTE_FLOAT            : 20
-CTE_INT              : 19
-CTE_STRING           : 54 59
-DIVIDE               : 38
-DO                   : 40
-DOUBLEPOINT          : 22 61
-ELSE                 : 51
+COMMA                : 25 46 56 58 60 66
+CTE_BOOL             : 
+CTE_FLOAT            : 22
+CTE_INT              : 21
+CTE_STRING           : 56 61
+DIVIDE               : 40
+DO                   : 42
+DOUBLEPOINT          : 24 63
+ELSE                 : 53
 END                  : 1
-EQ                   : 17 18
-FLOAT                : 67
-GT                   : 26
-GTE                  : 27
-ID                   : 1 17 18 21 22 41 48 63
-IF                   : 50
-INT                  : 66
+EQ                   : 19 20
+FLOAT                : 69
+GT                   : 28
+GTE                  : 29
+ID                   : 1 19 20 23 24 43 50 65
+IF                   : 52
+INT                  : 68
 LBRACE               : 6
-LPAR                 : 21 40 41 45 50 53
-LT                   : 28
-LTE                  : 29
-MINUS                : 34
-NT                   : 30
-PLUS                 : 33
-PRINT                : 53
+LPAR                 : 23 42 43 47 52 55
+LT                   : 30
+LTE                  : 31
+MINUS                : 36
+NT                   : 32
+PLUS                 : 35
+PRINT                : 55
 PROGRAM              : 1
 RBRACE               : 6
-RPAR                 : 21 40 41 45 50 53
-SEMICOMMA            : 1 17 18 21 40 41 50 53 61
-TIMES                : 37
-VAR                  : 60
-VOID                 : 21 68
-WHILE                : 40
+RPAR                 : 23 42 43 47 52 55
+SEMICOMMA            : 1 19 20 23 42 43 52 55 63
+TIMES                : 39
+VAR                  : 62
+VOID                 : 23 70
+WHILE                : 42
 error                : 
 
 Nonterminals, with rules where they appear
 
-EMPTY                : 5 24 31 35 39 43 52 62 65
+EMPTY                : 5 26 33 37 41 45 54 64 67
 assign               : 7 8
-body                 : 21 40 50 51
+body                 : 23 42 52 53
 conditions           : 9 10
-cte                  : 18 49
-cycle                : 
+cte                  : 20 51
+cycle                : 15 16
 empezar              : 0
-exp                  : 25 26 27 28 29 30
-expression           : 17 40 42 45 50 55 56
-factor               : 36 37 38
+exp                  : 27 28 29 30 31 32
+expression           : 19 42 44 47 52 57 58
+factor               : 38 39 40
 fcall                : 11 12
 func_create          : 2 3 4
-func_vars            : 21 22 23
+func_vars            : 23 24 25
 funcs                : 4
-haselse              : 50
-id_cte               : 46 47
+haselse              : 52
+id_cte               : 48 49
 imprimir             : 13 14
-list_exp             : 41 42 44
-lopa                 : 36
-lopb                 : 32 46
-lst_id               : 61 63 64
-lst_printing_options : 53 54 56 58
-lst_var              : 60
-op                   : 25
-statment             : 6 7 10 12 13 16
-termino              : 32 33 34
-type                 : 22 61
+list_exp             : 43 44 46
+lopa                 : 38
+lopb                 : 34 48
+lst_id               : 63 65 66
+lst_printing_options : 55 56 58 60
+lst_var              : 62
+op                   : 27
+statment             : 6 7 10 12 13 15 18
+termino              : 34 35 36
+type                 : 24 63
 var_or_func          : 1
-vars                 : 2 15 16 57 58
+vars                 : 2 17 18 59 60
 
 Parsing method: LALR
 
@@ -177,15 +184,15 @@ state 4
     (1) empezar -> PROGRAM ID SEMICOMMA . var_or_func END
     (2) var_or_func -> . vars func_create
     (3) var_or_func -> . func_create
-    (60) vars -> . VAR lst_var
+    (62) vars -> . VAR lst_var
     (4) func_create -> . funcs func_create
     (5) func_create -> . EMPTY
-    (21) funcs -> . VOID ID LPAR func_vars RPAR body SEMICOMMA
-    (69) EMPTY -> .
+    (23) funcs -> . VOID ID LPAR func_vars RPAR body SEMICOMMA
+    (71) EMPTY -> .
 
     VAR             shift and go to state 8
     VOID            shift and go to state 11
-    END             reduce using rule 69 (EMPTY -> .)
+    END             reduce using rule 71 (EMPTY -> .)
 
     var_or_func                    shift and go to state 5
     vars                           shift and go to state 6
@@ -205,11 +212,11 @@ state 6
     (2) var_or_func -> vars . func_create
     (4) func_create -> . funcs func_create
     (5) func_create -> . EMPTY
-    (21) funcs -> . VOID ID LPAR func_vars RPAR body SEMICOMMA
-    (69) EMPTY -> .
+    (23) funcs -> . VOID ID LPAR func_vars RPAR body SEMICOMMA
+    (71) EMPTY -> .
 
     VOID            shift and go to state 11
-    END             reduce using rule 69 (EMPTY -> .)
+    END             reduce using rule 71 (EMPTY -> .)
 
     func_create                    shift and go to state 13
     funcs                          shift and go to state 9
@@ -224,29 +231,30 @@ state 7
 
 state 8
 
-    (60) vars -> VAR . lst_var
-    (61) lst_var -> . lst_id DOUBLEPOINT type SEMICOMMA
-    (62) lst_var -> . EMPTY
-    (63) lst_id -> . ID lst_id
-    (64) lst_id -> . COMMA lst_id
-    (65) lst_id -> . EMPTY
-    (69) EMPTY -> .
+    (62) vars -> VAR . lst_var
+    (63) lst_var -> . lst_id DOUBLEPOINT type SEMICOMMA
+    (64) lst_var -> . EMPTY
+    (65) lst_id -> . ID lst_id
+    (66) lst_id -> . COMMA lst_id
+    (67) lst_id -> . EMPTY
+    (71) EMPTY -> .
 
   ! shift/reduce conflict for ID resolved as shift
   ! shift/reduce conflict for COMMA resolved as shift
     ID              shift and go to state 17
     COMMA           shift and go to state 18
-    VOID            reduce using rule 69 (EMPTY -> .)
-    END             reduce using rule 69 (EMPTY -> .)
-    IF              reduce using rule 69 (EMPTY -> .)
-    PRINT           reduce using rule 69 (EMPTY -> .)
-    VAR             reduce using rule 69 (EMPTY -> .)
-    RBRACE          reduce using rule 69 (EMPTY -> .)
-    RPAR            reduce using rule 69 (EMPTY -> .)
-    DOUBLEPOINT     reduce using rule 69 (EMPTY -> .)
+    VOID            reduce using rule 71 (EMPTY -> .)
+    END             reduce using rule 71 (EMPTY -> .)
+    IF              reduce using rule 71 (EMPTY -> .)
+    PRINT           reduce using rule 71 (EMPTY -> .)
+    WHILE           reduce using rule 71 (EMPTY -> .)
+    VAR             reduce using rule 71 (EMPTY -> .)
+    RBRACE          reduce using rule 71 (EMPTY -> .)
+    RPAR            reduce using rule 71 (EMPTY -> .)
+    DOUBLEPOINT     reduce using rule 71 (EMPTY -> .)
 
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! COMMA           [ reduce using rule 69 (EMPTY -> .) ]
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! COMMA           [ reduce using rule 71 (EMPTY -> .) ]
 
     lst_var                        shift and go to state 14
     lst_id                         shift and go to state 15
@@ -257,11 +265,11 @@ state 9
     (4) func_create -> funcs . func_create
     (4) func_create -> . funcs func_create
     (5) func_create -> . EMPTY
-    (21) funcs -> . VOID ID LPAR func_vars RPAR body SEMICOMMA
-    (69) EMPTY -> .
+    (23) funcs -> . VOID ID LPAR func_vars RPAR body SEMICOMMA
+    (71) EMPTY -> .
 
     VOID            shift and go to state 11
-    END             reduce using rule 69 (EMPTY -> .)
+    END             reduce using rule 71 (EMPTY -> .)
 
     funcs                          shift and go to state 9
     func_create                    shift and go to state 19
@@ -276,7 +284,7 @@ state 10
 
 state 11
 
-    (21) funcs -> VOID . ID LPAR func_vars RPAR body SEMICOMMA
+    (23) funcs -> VOID . ID LPAR func_vars RPAR body SEMICOMMA
 
     ID              shift and go to state 20
 
@@ -297,69 +305,71 @@ state 13
 
 state 14
 
-    (60) vars -> VAR lst_var .
+    (62) vars -> VAR lst_var .
 
-    VOID            reduce using rule 60 (vars -> VAR lst_var .)
-    END             reduce using rule 60 (vars -> VAR lst_var .)
-    ID              reduce using rule 60 (vars -> VAR lst_var .)
-    IF              reduce using rule 60 (vars -> VAR lst_var .)
-    PRINT           reduce using rule 60 (vars -> VAR lst_var .)
-    VAR             reduce using rule 60 (vars -> VAR lst_var .)
-    RBRACE          reduce using rule 60 (vars -> VAR lst_var .)
-    COMMA           reduce using rule 60 (vars -> VAR lst_var .)
-    RPAR            reduce using rule 60 (vars -> VAR lst_var .)
+    VOID            reduce using rule 62 (vars -> VAR lst_var .)
+    END             reduce using rule 62 (vars -> VAR lst_var .)
+    ID              reduce using rule 62 (vars -> VAR lst_var .)
+    IF              reduce using rule 62 (vars -> VAR lst_var .)
+    PRINT           reduce using rule 62 (vars -> VAR lst_var .)
+    WHILE           reduce using rule 62 (vars -> VAR lst_var .)
+    VAR             reduce using rule 62 (vars -> VAR lst_var .)
+    RBRACE          reduce using rule 62 (vars -> VAR lst_var .)
+    COMMA           reduce using rule 62 (vars -> VAR lst_var .)
+    RPAR            reduce using rule 62 (vars -> VAR lst_var .)
 
 
 state 15
 
-    (61) lst_var -> lst_id . DOUBLEPOINT type SEMICOMMA
+    (63) lst_var -> lst_id . DOUBLEPOINT type SEMICOMMA
 
     DOUBLEPOINT     shift and go to state 21
 
 
 state 16
 
-    (62) lst_var -> EMPTY .
-    (65) lst_id -> EMPTY .
+    (64) lst_var -> EMPTY .
+    (67) lst_id -> EMPTY .
 
-    VOID            reduce using rule 62 (lst_var -> EMPTY .)
-    END             reduce using rule 62 (lst_var -> EMPTY .)
-    ID              reduce using rule 62 (lst_var -> EMPTY .)
-    IF              reduce using rule 62 (lst_var -> EMPTY .)
-    PRINT           reduce using rule 62 (lst_var -> EMPTY .)
-    VAR             reduce using rule 62 (lst_var -> EMPTY .)
-    RBRACE          reduce using rule 62 (lst_var -> EMPTY .)
-    COMMA           reduce using rule 62 (lst_var -> EMPTY .)
-    RPAR            reduce using rule 62 (lst_var -> EMPTY .)
-    DOUBLEPOINT     reduce using rule 65 (lst_id -> EMPTY .)
+    VOID            reduce using rule 64 (lst_var -> EMPTY .)
+    END             reduce using rule 64 (lst_var -> EMPTY .)
+    ID              reduce using rule 64 (lst_var -> EMPTY .)
+    IF              reduce using rule 64 (lst_var -> EMPTY .)
+    PRINT           reduce using rule 64 (lst_var -> EMPTY .)
+    WHILE           reduce using rule 64 (lst_var -> EMPTY .)
+    VAR             reduce using rule 64 (lst_var -> EMPTY .)
+    RBRACE          reduce using rule 64 (lst_var -> EMPTY .)
+    COMMA           reduce using rule 64 (lst_var -> EMPTY .)
+    RPAR            reduce using rule 64 (lst_var -> EMPTY .)
+    DOUBLEPOINT     reduce using rule 67 (lst_id -> EMPTY .)
 
 
 state 17
 
-    (63) lst_id -> ID . lst_id
-    (63) lst_id -> . ID lst_id
-    (64) lst_id -> . COMMA lst_id
-    (65) lst_id -> . EMPTY
-    (69) EMPTY -> .
+    (65) lst_id -> ID . lst_id
+    (65) lst_id -> . ID lst_id
+    (66) lst_id -> . COMMA lst_id
+    (67) lst_id -> . EMPTY
+    (71) EMPTY -> .
 
     ID              shift and go to state 17
     COMMA           shift and go to state 18
-    DOUBLEPOINT     reduce using rule 69 (EMPTY -> .)
+    DOUBLEPOINT     reduce using rule 71 (EMPTY -> .)
 
     lst_id                         shift and go to state 22
     EMPTY                          shift and go to state 23
 
 state 18
 
-    (64) lst_id -> COMMA . lst_id
-    (63) lst_id -> . ID lst_id
-    (64) lst_id -> . COMMA lst_id
-    (65) lst_id -> . EMPTY
-    (69) EMPTY -> .
+    (66) lst_id -> COMMA . lst_id
+    (65) lst_id -> . ID lst_id
+    (66) lst_id -> . COMMA lst_id
+    (67) lst_id -> . EMPTY
+    (71) EMPTY -> .
 
     ID              shift and go to state 17
     COMMA           shift and go to state 18
-    DOUBLEPOINT     reduce using rule 69 (EMPTY -> .)
+    DOUBLEPOINT     reduce using rule 71 (EMPTY -> .)
 
     lst_id                         shift and go to state 24
     EMPTY                          shift and go to state 23
@@ -373,17 +383,17 @@ state 19
 
 state 20
 
-    (21) funcs -> VOID ID . LPAR func_vars RPAR body SEMICOMMA
+    (23) funcs -> VOID ID . LPAR func_vars RPAR body SEMICOMMA
 
     LPAR            shift and go to state 25
 
 
 state 21
 
-    (61) lst_var -> lst_id DOUBLEPOINT . type SEMICOMMA
-    (66) type -> . INT
-    (67) type -> . FLOAT
-    (68) type -> . VOID
+    (63) lst_var -> lst_id DOUBLEPOINT . type SEMICOMMA
+    (68) type -> . INT
+    (69) type -> . FLOAT
+    (70) type -> . VOID
 
     INT             shift and go to state 27
     FLOAT           shift and go to state 28
@@ -393,134 +403,135 @@ state 21
 
 state 22
 
-    (63) lst_id -> ID lst_id .
+    (65) lst_id -> ID lst_id .
 
-    DOUBLEPOINT     reduce using rule 63 (lst_id -> ID lst_id .)
+    DOUBLEPOINT     reduce using rule 65 (lst_id -> ID lst_id .)
 
 
 state 23
 
-    (65) lst_id -> EMPTY .
+    (67) lst_id -> EMPTY .
 
-    DOUBLEPOINT     reduce using rule 65 (lst_id -> EMPTY .)
+    DOUBLEPOINT     reduce using rule 67 (lst_id -> EMPTY .)
 
 
 state 24
 
-    (64) lst_id -> COMMA lst_id .
+    (66) lst_id -> COMMA lst_id .
 
-    DOUBLEPOINT     reduce using rule 64 (lst_id -> COMMA lst_id .)
+    DOUBLEPOINT     reduce using rule 66 (lst_id -> COMMA lst_id .)
 
 
 state 25
 
-    (21) funcs -> VOID ID LPAR . func_vars RPAR body SEMICOMMA
-    (22) func_vars -> . ID DOUBLEPOINT type func_vars
-    (23) func_vars -> . COMMA func_vars
-    (24) func_vars -> . EMPTY
-    (69) EMPTY -> .
+    (23) funcs -> VOID ID LPAR . func_vars RPAR body SEMICOMMA
+    (24) func_vars -> . ID DOUBLEPOINT type func_vars
+    (25) func_vars -> . COMMA func_vars
+    (26) func_vars -> . EMPTY
+    (71) EMPTY -> .
 
     ID              shift and go to state 30
     COMMA           shift and go to state 32
-    RPAR            reduce using rule 69 (EMPTY -> .)
+    RPAR            reduce using rule 71 (EMPTY -> .)
 
     func_vars                      shift and go to state 31
     EMPTY                          shift and go to state 33
 
 state 26
 
-    (61) lst_var -> lst_id DOUBLEPOINT type . SEMICOMMA
+    (63) lst_var -> lst_id DOUBLEPOINT type . SEMICOMMA
 
     SEMICOMMA       shift and go to state 34
 
 
 state 27
 
-    (66) type -> INT .
+    (68) type -> INT .
 
-    SEMICOMMA       reduce using rule 66 (type -> INT .)
-    ID              reduce using rule 66 (type -> INT .)
-    COMMA           reduce using rule 66 (type -> INT .)
-    RPAR            reduce using rule 66 (type -> INT .)
+    SEMICOMMA       reduce using rule 68 (type -> INT .)
+    ID              reduce using rule 68 (type -> INT .)
+    COMMA           reduce using rule 68 (type -> INT .)
+    RPAR            reduce using rule 68 (type -> INT .)
 
 
 state 28
 
-    (67) type -> FLOAT .
+    (69) type -> FLOAT .
 
-    SEMICOMMA       reduce using rule 67 (type -> FLOAT .)
-    ID              reduce using rule 67 (type -> FLOAT .)
-    COMMA           reduce using rule 67 (type -> FLOAT .)
-    RPAR            reduce using rule 67 (type -> FLOAT .)
+    SEMICOMMA       reduce using rule 69 (type -> FLOAT .)
+    ID              reduce using rule 69 (type -> FLOAT .)
+    COMMA           reduce using rule 69 (type -> FLOAT .)
+    RPAR            reduce using rule 69 (type -> FLOAT .)
 
 
 state 29
 
-    (68) type -> VOID .
+    (70) type -> VOID .
 
-    SEMICOMMA       reduce using rule 68 (type -> VOID .)
-    ID              reduce using rule 68 (type -> VOID .)
-    COMMA           reduce using rule 68 (type -> VOID .)
-    RPAR            reduce using rule 68 (type -> VOID .)
+    SEMICOMMA       reduce using rule 70 (type -> VOID .)
+    ID              reduce using rule 70 (type -> VOID .)
+    COMMA           reduce using rule 70 (type -> VOID .)
+    RPAR            reduce using rule 70 (type -> VOID .)
 
 
 state 30
 
-    (22) func_vars -> ID . DOUBLEPOINT type func_vars
+    (24) func_vars -> ID . DOUBLEPOINT type func_vars
 
     DOUBLEPOINT     shift and go to state 35
 
 
 state 31
 
-    (21) funcs -> VOID ID LPAR func_vars . RPAR body SEMICOMMA
+    (23) funcs -> VOID ID LPAR func_vars . RPAR body SEMICOMMA
 
     RPAR            shift and go to state 36
 
 
 state 32
 
-    (23) func_vars -> COMMA . func_vars
-    (22) func_vars -> . ID DOUBLEPOINT type func_vars
-    (23) func_vars -> . COMMA func_vars
-    (24) func_vars -> . EMPTY
-    (69) EMPTY -> .
+    (25) func_vars -> COMMA . func_vars
+    (24) func_vars -> . ID DOUBLEPOINT type func_vars
+    (25) func_vars -> . COMMA func_vars
+    (26) func_vars -> . EMPTY
+    (71) EMPTY -> .
 
     ID              shift and go to state 30
     COMMA           shift and go to state 32
-    RPAR            reduce using rule 69 (EMPTY -> .)
+    RPAR            reduce using rule 71 (EMPTY -> .)
 
     func_vars                      shift and go to state 37
     EMPTY                          shift and go to state 33
 
 state 33
 
-    (24) func_vars -> EMPTY .
+    (26) func_vars -> EMPTY .
 
-    RPAR            reduce using rule 24 (func_vars -> EMPTY .)
+    RPAR            reduce using rule 26 (func_vars -> EMPTY .)
 
 
 state 34
 
-    (61) lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .
+    (63) lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .
 
-    VOID            reduce using rule 61 (lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .)
-    END             reduce using rule 61 (lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .)
-    ID              reduce using rule 61 (lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .)
-    IF              reduce using rule 61 (lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .)
-    PRINT           reduce using rule 61 (lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .)
-    VAR             reduce using rule 61 (lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .)
-    RBRACE          reduce using rule 61 (lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .)
-    COMMA           reduce using rule 61 (lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .)
-    RPAR            reduce using rule 61 (lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .)
+    VOID            reduce using rule 63 (lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .)
+    END             reduce using rule 63 (lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .)
+    ID              reduce using rule 63 (lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .)
+    IF              reduce using rule 63 (lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .)
+    PRINT           reduce using rule 63 (lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .)
+    WHILE           reduce using rule 63 (lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .)
+    VAR             reduce using rule 63 (lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .)
+    RBRACE          reduce using rule 63 (lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .)
+    COMMA           reduce using rule 63 (lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .)
+    RPAR            reduce using rule 63 (lst_var -> lst_id DOUBLEPOINT type SEMICOMMA .)
 
 
 state 35
 
-    (22) func_vars -> ID DOUBLEPOINT . type func_vars
-    (66) type -> . INT
-    (67) type -> . FLOAT
-    (68) type -> . VOID
+    (24) func_vars -> ID DOUBLEPOINT . type func_vars
+    (68) type -> . INT
+    (69) type -> . FLOAT
+    (70) type -> . VOID
 
     INT             shift and go to state 27
     FLOAT           shift and go to state 28
@@ -530,7 +541,7 @@ state 35
 
 state 36
 
-    (21) funcs -> VOID ID LPAR func_vars RPAR . body SEMICOMMA
+    (23) funcs -> VOID ID LPAR func_vars RPAR . body SEMICOMMA
     (6) body -> . LBRACE statment RBRACE
 
     LBRACE          shift and go to state 40
@@ -539,29 +550,29 @@ state 36
 
 state 37
 
-    (23) func_vars -> COMMA func_vars .
+    (25) func_vars -> COMMA func_vars .
 
-    RPAR            reduce using rule 23 (func_vars -> COMMA func_vars .)
+    RPAR            reduce using rule 25 (func_vars -> COMMA func_vars .)
 
 
 state 38
 
-    (22) func_vars -> ID DOUBLEPOINT type . func_vars
-    (22) func_vars -> . ID DOUBLEPOINT type func_vars
-    (23) func_vars -> . COMMA func_vars
-    (24) func_vars -> . EMPTY
-    (69) EMPTY -> .
+    (24) func_vars -> ID DOUBLEPOINT type . func_vars
+    (24) func_vars -> . ID DOUBLEPOINT type func_vars
+    (25) func_vars -> . COMMA func_vars
+    (26) func_vars -> . EMPTY
+    (71) EMPTY -> .
 
     ID              shift and go to state 30
     COMMA           shift and go to state 32
-    RPAR            reduce using rule 69 (EMPTY -> .)
+    RPAR            reduce using rule 71 (EMPTY -> .)
 
     func_vars                      shift and go to state 41
     EMPTY                          shift and go to state 33
 
 state 39
 
-    (21) funcs -> VOID ID LPAR func_vars RPAR body . SEMICOMMA
+    (23) funcs -> VOID ID LPAR func_vars RPAR body . SEMICOMMA
 
     SEMICOMMA       shift and go to state 42
 
@@ -577,18 +588,22 @@ state 40
     (12) statment -> . fcall statment
     (13) statment -> . imprimir statment
     (14) statment -> . imprimir
-    (15) statment -> . vars
-    (16) statment -> . vars statment
-    (17) assign -> . ID EQ expression SEMICOMMA
-    (18) assign -> . ID EQ cte SEMICOMMA
-    (50) conditions -> . IF LPAR expression RPAR body haselse SEMICOMMA
-    (41) fcall -> . ID LPAR list_exp RPAR SEMICOMMA
-    (53) imprimir -> . PRINT LPAR lst_printing_options RPAR SEMICOMMA
-    (60) vars -> . VAR lst_var
+    (15) statment -> . cycle statment
+    (16) statment -> . cycle
+    (17) statment -> . vars
+    (18) statment -> . vars statment
+    (19) assign -> . ID EQ expression SEMICOMMA
+    (20) assign -> . ID EQ cte SEMICOMMA
+    (52) conditions -> . IF LPAR expression RPAR body haselse SEMICOMMA
+    (43) fcall -> . ID LPAR list_exp RPAR SEMICOMMA
+    (55) imprimir -> . PRINT LPAR lst_printing_options RPAR SEMICOMMA
+    (42) cycle -> . WHILE body DO LPAR expression RPAR SEMICOMMA
+    (62) vars -> . VAR lst_var
 
-    ID              shift and go to state 49
-    IF              shift and go to state 50
-    PRINT           shift and go to state 51
+    ID              shift and go to state 50
+    IF              shift and go to state 51
+    PRINT           shift and go to state 52
+    WHILE           shift and go to state 53
     VAR             shift and go to state 8
 
     statment                       shift and go to state 43
@@ -596,28 +611,29 @@ state 40
     conditions                     shift and go to state 45
     fcall                          shift and go to state 46
     imprimir                       shift and go to state 47
-    vars                           shift and go to state 48
+    cycle                          shift and go to state 48
+    vars                           shift and go to state 49
 
 state 41
 
-    (22) func_vars -> ID DOUBLEPOINT type func_vars .
+    (24) func_vars -> ID DOUBLEPOINT type func_vars .
 
-    RPAR            reduce using rule 22 (func_vars -> ID DOUBLEPOINT type func_vars .)
+    RPAR            reduce using rule 24 (func_vars -> ID DOUBLEPOINT type func_vars .)
 
 
 state 42
 
-    (21) funcs -> VOID ID LPAR func_vars RPAR body SEMICOMMA .
+    (23) funcs -> VOID ID LPAR func_vars RPAR body SEMICOMMA .
 
-    VOID            reduce using rule 21 (funcs -> VOID ID LPAR func_vars RPAR body SEMICOMMA .)
-    END             reduce using rule 21 (funcs -> VOID ID LPAR func_vars RPAR body SEMICOMMA .)
+    VOID            reduce using rule 23 (funcs -> VOID ID LPAR func_vars RPAR body SEMICOMMA .)
+    END             reduce using rule 23 (funcs -> VOID ID LPAR func_vars RPAR body SEMICOMMA .)
 
 
 state 43
 
     (6) body -> LBRACE statment . RBRACE
 
-    RBRACE          shift and go to state 52
+    RBRACE          shift and go to state 54
 
 
 state 44
@@ -632,27 +648,32 @@ state 44
     (12) statment -> . fcall statment
     (13) statment -> . imprimir statment
     (14) statment -> . imprimir
-    (15) statment -> . vars
-    (16) statment -> . vars statment
-    (17) assign -> . ID EQ expression SEMICOMMA
-    (18) assign -> . ID EQ cte SEMICOMMA
-    (50) conditions -> . IF LPAR expression RPAR body haselse SEMICOMMA
-    (41) fcall -> . ID LPAR list_exp RPAR SEMICOMMA
-    (53) imprimir -> . PRINT LPAR lst_printing_options RPAR SEMICOMMA
-    (60) vars -> . VAR lst_var
+    (15) statment -> . cycle statment
+    (16) statment -> . cycle
+    (17) statment -> . vars
+    (18) statment -> . vars statment
+    (19) assign -> . ID EQ expression SEMICOMMA
+    (20) assign -> . ID EQ cte SEMICOMMA
+    (52) conditions -> . IF LPAR expression RPAR body haselse SEMICOMMA
+    (43) fcall -> . ID LPAR list_exp RPAR SEMICOMMA
+    (55) imprimir -> . PRINT LPAR lst_printing_options RPAR SEMICOMMA
+    (42) cycle -> . WHILE body DO LPAR expression RPAR SEMICOMMA
+    (62) vars -> . VAR lst_var
 
     RBRACE          reduce using rule 8 (statment -> assign .)
-    ID              shift and go to state 49
-    IF              shift and go to state 50
-    PRINT           shift and go to state 51
+    ID              shift and go to state 50
+    IF              shift and go to state 51
+    PRINT           shift and go to state 52
+    WHILE           shift and go to state 53
     VAR             shift and go to state 8
 
     assign                         shift and go to state 44
-    statment                       shift and go to state 53
+    statment                       shift and go to state 55
     conditions                     shift and go to state 45
     fcall                          shift and go to state 46
     imprimir                       shift and go to state 47
-    vars                           shift and go to state 48
+    cycle                          shift and go to state 48
+    vars                           shift and go to state 49
 
 state 45
 
@@ -666,27 +687,32 @@ state 45
     (12) statment -> . fcall statment
     (13) statment -> . imprimir statment
     (14) statment -> . imprimir
-    (15) statment -> . vars
-    (16) statment -> . vars statment
-    (17) assign -> . ID EQ expression SEMICOMMA
-    (18) assign -> . ID EQ cte SEMICOMMA
-    (50) conditions -> . IF LPAR expression RPAR body haselse SEMICOMMA
-    (41) fcall -> . ID LPAR list_exp RPAR SEMICOMMA
-    (53) imprimir -> . PRINT LPAR lst_printing_options RPAR SEMICOMMA
-    (60) vars -> . VAR lst_var
+    (15) statment -> . cycle statment
+    (16) statment -> . cycle
+    (17) statment -> . vars
+    (18) statment -> . vars statment
+    (19) assign -> . ID EQ expression SEMICOMMA
+    (20) assign -> . ID EQ cte SEMICOMMA
+    (52) conditions -> . IF LPAR expression RPAR body haselse SEMICOMMA
+    (43) fcall -> . ID LPAR list_exp RPAR SEMICOMMA
+    (55) imprimir -> . PRINT LPAR lst_printing_options RPAR SEMICOMMA
+    (42) cycle -> . WHILE body DO LPAR expression RPAR SEMICOMMA
+    (62) vars -> . VAR lst_var
 
     RBRACE          reduce using rule 9 (statment -> conditions .)
-    ID              shift and go to state 49
-    IF              shift and go to state 50
-    PRINT           shift and go to state 51
+    ID              shift and go to state 50
+    IF              shift and go to state 51
+    PRINT           shift and go to state 52
+    WHILE           shift and go to state 53
     VAR             shift and go to state 8
 
     conditions                     shift and go to state 45
-    statment                       shift and go to state 54
+    statment                       shift and go to state 56
     assign                         shift and go to state 44
     fcall                          shift and go to state 46
     imprimir                       shift and go to state 47
-    vars                           shift and go to state 48
+    cycle                          shift and go to state 48
+    vars                           shift and go to state 49
 
 state 46
 
@@ -700,27 +726,32 @@ state 46
     (12) statment -> . fcall statment
     (13) statment -> . imprimir statment
     (14) statment -> . imprimir
-    (15) statment -> . vars
-    (16) statment -> . vars statment
-    (17) assign -> . ID EQ expression SEMICOMMA
-    (18) assign -> . ID EQ cte SEMICOMMA
-    (50) conditions -> . IF LPAR expression RPAR body haselse SEMICOMMA
-    (41) fcall -> . ID LPAR list_exp RPAR SEMICOMMA
-    (53) imprimir -> . PRINT LPAR lst_printing_options RPAR SEMICOMMA
-    (60) vars -> . VAR lst_var
+    (15) statment -> . cycle statment
+    (16) statment -> . cycle
+    (17) statment -> . vars
+    (18) statment -> . vars statment
+    (19) assign -> . ID EQ expression SEMICOMMA
+    (20) assign -> . ID EQ cte SEMICOMMA
+    (52) conditions -> . IF LPAR expression RPAR body haselse SEMICOMMA
+    (43) fcall -> . ID LPAR list_exp RPAR SEMICOMMA
+    (55) imprimir -> . PRINT LPAR lst_printing_options RPAR SEMICOMMA
+    (42) cycle -> . WHILE body DO LPAR expression RPAR SEMICOMMA
+    (62) vars -> . VAR lst_var
 
     RBRACE          reduce using rule 11 (statment -> fcall .)
-    ID              shift and go to state 49
-    IF              shift and go to state 50
-    PRINT           shift and go to state 51
+    ID              shift and go to state 50
+    IF              shift and go to state 51
+    PRINT           shift and go to state 52
+    WHILE           shift and go to state 53
     VAR             shift and go to state 8
 
     fcall                          shift and go to state 46
-    statment                       shift and go to state 55
+    statment                       shift and go to state 57
     assign                         shift and go to state 44
     conditions                     shift and go to state 45
     imprimir                       shift and go to state 47
-    vars                           shift and go to state 48
+    cycle                          shift and go to state 48
+    vars                           shift and go to state 49
 
 state 47
 
@@ -734,32 +765,37 @@ state 47
     (12) statment -> . fcall statment
     (13) statment -> . imprimir statment
     (14) statment -> . imprimir
-    (15) statment -> . vars
-    (16) statment -> . vars statment
-    (17) assign -> . ID EQ expression SEMICOMMA
-    (18) assign -> . ID EQ cte SEMICOMMA
-    (50) conditions -> . IF LPAR expression RPAR body haselse SEMICOMMA
-    (41) fcall -> . ID LPAR list_exp RPAR SEMICOMMA
-    (53) imprimir -> . PRINT LPAR lst_printing_options RPAR SEMICOMMA
-    (60) vars -> . VAR lst_var
+    (15) statment -> . cycle statment
+    (16) statment -> . cycle
+    (17) statment -> . vars
+    (18) statment -> . vars statment
+    (19) assign -> . ID EQ expression SEMICOMMA
+    (20) assign -> . ID EQ cte SEMICOMMA
+    (52) conditions -> . IF LPAR expression RPAR body haselse SEMICOMMA
+    (43) fcall -> . ID LPAR list_exp RPAR SEMICOMMA
+    (55) imprimir -> . PRINT LPAR lst_printing_options RPAR SEMICOMMA
+    (42) cycle -> . WHILE body DO LPAR expression RPAR SEMICOMMA
+    (62) vars -> . VAR lst_var
 
     RBRACE          reduce using rule 14 (statment -> imprimir .)
-    ID              shift and go to state 49
-    IF              shift and go to state 50
-    PRINT           shift and go to state 51
+    ID              shift and go to state 50
+    IF              shift and go to state 51
+    PRINT           shift and go to state 52
+    WHILE           shift and go to state 53
     VAR             shift and go to state 8
 
     imprimir                       shift and go to state 47
-    statment                       shift and go to state 56
+    statment                       shift and go to state 58
     assign                         shift and go to state 44
     conditions                     shift and go to state 45
     fcall                          shift and go to state 46
-    vars                           shift and go to state 48
+    cycle                          shift and go to state 48
+    vars                           shift and go to state 49
 
 state 48
 
-    (15) statment -> vars .
-    (16) statment -> vars . statment
+    (15) statment -> cycle . statment
+    (16) statment -> cycle .
     (7) statment -> . assign statment
     (8) statment -> . assign
     (9) statment -> . conditions
@@ -768,1739 +804,1889 @@ state 48
     (12) statment -> . fcall statment
     (13) statment -> . imprimir statment
     (14) statment -> . imprimir
-    (15) statment -> . vars
-    (16) statment -> . vars statment
-    (17) assign -> . ID EQ expression SEMICOMMA
-    (18) assign -> . ID EQ cte SEMICOMMA
-    (50) conditions -> . IF LPAR expression RPAR body haselse SEMICOMMA
-    (41) fcall -> . ID LPAR list_exp RPAR SEMICOMMA
-    (53) imprimir -> . PRINT LPAR lst_printing_options RPAR SEMICOMMA
-    (60) vars -> . VAR lst_var
+    (15) statment -> . cycle statment
+    (16) statment -> . cycle
+    (17) statment -> . vars
+    (18) statment -> . vars statment
+    (19) assign -> . ID EQ expression SEMICOMMA
+    (20) assign -> . ID EQ cte SEMICOMMA
+    (52) conditions -> . IF LPAR expression RPAR body haselse SEMICOMMA
+    (43) fcall -> . ID LPAR list_exp RPAR SEMICOMMA
+    (55) imprimir -> . PRINT LPAR lst_printing_options RPAR SEMICOMMA
+    (42) cycle -> . WHILE body DO LPAR expression RPAR SEMICOMMA
+    (62) vars -> . VAR lst_var
 
-    RBRACE          reduce using rule 15 (statment -> vars .)
-    ID              shift and go to state 49
-    IF              shift and go to state 50
-    PRINT           shift and go to state 51
+    RBRACE          reduce using rule 16 (statment -> cycle .)
+    ID              shift and go to state 50
+    IF              shift and go to state 51
+    PRINT           shift and go to state 52
+    WHILE           shift and go to state 53
     VAR             shift and go to state 8
 
-    vars                           shift and go to state 48
-    statment                       shift and go to state 57
+    cycle                          shift and go to state 48
+    statment                       shift and go to state 59
     assign                         shift and go to state 44
     conditions                     shift and go to state 45
     fcall                          shift and go to state 46
     imprimir                       shift and go to state 47
+    vars                           shift and go to state 49
 
 state 49
 
-    (17) assign -> ID . EQ expression SEMICOMMA
-    (18) assign -> ID . EQ cte SEMICOMMA
-    (41) fcall -> ID . LPAR list_exp RPAR SEMICOMMA
+    (17) statment -> vars .
+    (18) statment -> vars . statment
+    (7) statment -> . assign statment
+    (8) statment -> . assign
+    (9) statment -> . conditions
+    (10) statment -> . conditions statment
+    (11) statment -> . fcall
+    (12) statment -> . fcall statment
+    (13) statment -> . imprimir statment
+    (14) statment -> . imprimir
+    (15) statment -> . cycle statment
+    (16) statment -> . cycle
+    (17) statment -> . vars
+    (18) statment -> . vars statment
+    (19) assign -> . ID EQ expression SEMICOMMA
+    (20) assign -> . ID EQ cte SEMICOMMA
+    (52) conditions -> . IF LPAR expression RPAR body haselse SEMICOMMA
+    (43) fcall -> . ID LPAR list_exp RPAR SEMICOMMA
+    (55) imprimir -> . PRINT LPAR lst_printing_options RPAR SEMICOMMA
+    (42) cycle -> . WHILE body DO LPAR expression RPAR SEMICOMMA
+    (62) vars -> . VAR lst_var
 
-    EQ              shift and go to state 58
-    LPAR            shift and go to state 59
+    RBRACE          reduce using rule 17 (statment -> vars .)
+    ID              shift and go to state 50
+    IF              shift and go to state 51
+    PRINT           shift and go to state 52
+    WHILE           shift and go to state 53
+    VAR             shift and go to state 8
 
+    vars                           shift and go to state 49
+    statment                       shift and go to state 60
+    assign                         shift and go to state 44
+    conditions                     shift and go to state 45
+    fcall                          shift and go to state 46
+    imprimir                       shift and go to state 47
+    cycle                          shift and go to state 48
 
 state 50
 
-    (50) conditions -> IF . LPAR expression RPAR body haselse SEMICOMMA
+    (19) assign -> ID . EQ expression SEMICOMMA
+    (20) assign -> ID . EQ cte SEMICOMMA
+    (43) fcall -> ID . LPAR list_exp RPAR SEMICOMMA
 
-    LPAR            shift and go to state 60
+    EQ              shift and go to state 61
+    LPAR            shift and go to state 62
 
 
 state 51
 
-    (53) imprimir -> PRINT . LPAR lst_printing_options RPAR SEMICOMMA
+    (52) conditions -> IF . LPAR expression RPAR body haselse SEMICOMMA
 
-    LPAR            shift and go to state 61
+    LPAR            shift and go to state 63
 
 
 state 52
 
-    (6) body -> LBRACE statment RBRACE .
+    (55) imprimir -> PRINT . LPAR lst_printing_options RPAR SEMICOMMA
 
-    SEMICOMMA       reduce using rule 6 (body -> LBRACE statment RBRACE .)
-    ELSE            reduce using rule 6 (body -> LBRACE statment RBRACE .)
+    LPAR            shift and go to state 64
 
 
 state 53
+
+    (42) cycle -> WHILE . body DO LPAR expression RPAR SEMICOMMA
+    (6) body -> . LBRACE statment RBRACE
+
+    LBRACE          shift and go to state 40
+
+    body                           shift and go to state 65
+
+state 54
+
+    (6) body -> LBRACE statment RBRACE .
+
+    SEMICOMMA       reduce using rule 6 (body -> LBRACE statment RBRACE .)
+    DO              reduce using rule 6 (body -> LBRACE statment RBRACE .)
+    ELSE            reduce using rule 6 (body -> LBRACE statment RBRACE .)
+
+
+state 55
 
     (7) statment -> assign statment .
 
     RBRACE          reduce using rule 7 (statment -> assign statment .)
 
 
-state 54
+state 56
 
     (10) statment -> conditions statment .
 
     RBRACE          reduce using rule 10 (statment -> conditions statment .)
 
 
-state 55
+state 57
 
     (12) statment -> fcall statment .
 
     RBRACE          reduce using rule 12 (statment -> fcall statment .)
 
 
-state 56
+state 58
 
     (13) statment -> imprimir statment .
 
     RBRACE          reduce using rule 13 (statment -> imprimir statment .)
 
 
-state 57
-
-    (16) statment -> vars statment .
-
-    RBRACE          reduce using rule 16 (statment -> vars statment .)
-
-
-state 58
-
-    (17) assign -> ID EQ . expression SEMICOMMA
-    (18) assign -> ID EQ . cte SEMICOMMA
-    (25) expression -> . exp op
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
-    (32) exp -> . termino lopb
-    (36) termino -> . factor lopa
-    (45) factor -> . LPAR expression RPAR
-    (46) factor -> . lopb id_cte
-    (47) factor -> . id_cte
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (69) EMPTY -> .
-
-  ! shift/reduce conflict for ID resolved as shift
-  ! shift/reduce conflict for CTE_INT resolved as shift
-  ! shift/reduce conflict for CTE_FLOAT resolved as shift
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
-    LPAR            shift and go to state 71
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    ID              shift and go to state 62
-
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_INT         [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_FLOAT       [ reduce using rule 69 (EMPTY -> .) ]
-
-    expression                     shift and go to state 63
-    cte                            shift and go to state 64
-    exp                            shift and go to state 65
-    termino                        shift and go to state 68
-    lopb                           shift and go to state 69
-    factor                         shift and go to state 70
-    id_cte                         shift and go to state 72
-    EMPTY                          shift and go to state 75
-
 state 59
 
-    (41) fcall -> ID LPAR . list_exp RPAR SEMICOMMA
-    (42) list_exp -> . expression list_exp
-    (43) list_exp -> . EMPTY
-    (44) list_exp -> . COMMA list_exp
-    (25) expression -> . exp op
-    (69) EMPTY -> .
-    (32) exp -> . termino lopb
-    (36) termino -> . factor lopa
-    (45) factor -> . LPAR expression RPAR
-    (46) factor -> . lopb id_cte
-    (47) factor -> . id_cte
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
+    (15) statment -> cycle statment .
 
-  ! shift/reduce conflict for ID resolved as shift
-  ! shift/reduce conflict for CTE_INT resolved as shift
-  ! shift/reduce conflict for CTE_FLOAT resolved as shift
-    COMMA           shift and go to state 79
-    RPAR            reduce using rule 69 (EMPTY -> .)
-    LPAR            shift and go to state 71
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    ID              shift and go to state 62
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
+    RBRACE          reduce using rule 15 (statment -> cycle statment .)
 
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_INT         [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_FLOAT       [ reduce using rule 69 (EMPTY -> .) ]
-
-    list_exp                       shift and go to state 76
-    expression                     shift and go to state 77
-    EMPTY                          shift and go to state 78
-    exp                            shift and go to state 65
-    termino                        shift and go to state 68
-    lopb                           shift and go to state 69
-    factor                         shift and go to state 70
-    id_cte                         shift and go to state 72
-    cte                            shift and go to state 80
 
 state 60
 
-    (50) conditions -> IF LPAR . expression RPAR body haselse SEMICOMMA
-    (25) expression -> . exp op
-    (32) exp -> . termino lopb
-    (36) termino -> . factor lopa
-    (45) factor -> . LPAR expression RPAR
-    (46) factor -> . lopb id_cte
-    (47) factor -> . id_cte
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (69) EMPTY -> .
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
+    (18) statment -> vars statment .
 
-  ! shift/reduce conflict for ID resolved as shift
-  ! shift/reduce conflict for CTE_INT resolved as shift
-  ! shift/reduce conflict for CTE_FLOAT resolved as shift
-    LPAR            shift and go to state 71
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    ID              shift and go to state 62
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
+    RBRACE          reduce using rule 18 (statment -> vars statment .)
 
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_INT         [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_FLOAT       [ reduce using rule 69 (EMPTY -> .) ]
-
-    expression                     shift and go to state 81
-    exp                            shift and go to state 65
-    termino                        shift and go to state 68
-    lopb                           shift and go to state 69
-    factor                         shift and go to state 70
-    id_cte                         shift and go to state 72
-    EMPTY                          shift and go to state 75
-    cte                            shift and go to state 80
 
 state 61
 
-    (53) imprimir -> PRINT LPAR . lst_printing_options RPAR SEMICOMMA
-    (54) lst_printing_options -> . CTE_STRING COMMA lst_printing_options
-    (55) lst_printing_options -> . expression
-    (56) lst_printing_options -> . expression COMMA lst_printing_options
-    (57) lst_printing_options -> . vars
-    (58) lst_printing_options -> . vars COMMA lst_printing_options
-    (59) lst_printing_options -> . CTE_STRING
-    (25) expression -> . exp op
-    (60) vars -> . VAR lst_var
-    (32) exp -> . termino lopb
-    (36) termino -> . factor lopa
-    (45) factor -> . LPAR expression RPAR
-    (46) factor -> . lopb id_cte
-    (47) factor -> . id_cte
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (69) EMPTY -> .
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
+    (19) assign -> ID EQ . expression SEMICOMMA
+    (20) assign -> ID EQ . cte SEMICOMMA
+    (27) expression -> . exp op
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
+    (34) exp -> . termino lopb
+    (38) termino -> . factor lopa
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (71) EMPTY -> .
 
   ! shift/reduce conflict for ID resolved as shift
   ! shift/reduce conflict for CTE_INT resolved as shift
   ! shift/reduce conflict for CTE_FLOAT resolved as shift
-    CTE_STRING      shift and go to state 83
-    VAR             shift and go to state 8
-    LPAR            shift and go to state 71
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    ID              shift and go to state 62
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
 
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_INT         [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_FLOAT       [ reduce using rule 69 (EMPTY -> .) ]
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
 
-    lst_printing_options           shift and go to state 82
-    expression                     shift and go to state 84
-    vars                           shift and go to state 85
-    exp                            shift and go to state 65
-    termino                        shift and go to state 68
-    lopb                           shift and go to state 69
-    factor                         shift and go to state 70
-    id_cte                         shift and go to state 72
-    EMPTY                          shift and go to state 75
-    cte                            shift and go to state 80
+    expression                     shift and go to state 67
+    cte                            shift and go to state 68
+    exp                            shift and go to state 69
+    termino                        shift and go to state 72
+    lopb                           shift and go to state 73
+    factor                         shift and go to state 74
+    id_cte                         shift and go to state 76
+    EMPTY                          shift and go to state 79
 
 state 62
 
-    (48) id_cte -> ID .
+    (43) fcall -> ID LPAR . list_exp RPAR SEMICOMMA
+    (44) list_exp -> . expression list_exp
+    (45) list_exp -> . EMPTY
+    (46) list_exp -> . COMMA list_exp
+    (27) expression -> . exp op
+    (71) EMPTY -> .
+    (34) exp -> . termino lopb
+    (38) termino -> . factor lopa
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
 
-    TIMES           reduce using rule 48 (id_cte -> ID .)
-    DIVIDE          reduce using rule 48 (id_cte -> ID .)
-    PLUS            reduce using rule 48 (id_cte -> ID .)
-    MINUS           reduce using rule 48 (id_cte -> ID .)
-    GT              reduce using rule 48 (id_cte -> ID .)
-    GTE             reduce using rule 48 (id_cte -> ID .)
-    LT              reduce using rule 48 (id_cte -> ID .)
-    LTE             reduce using rule 48 (id_cte -> ID .)
-    NT              reduce using rule 48 (id_cte -> ID .)
-    SEMICOMMA       reduce using rule 48 (id_cte -> ID .)
-    COMMA           reduce using rule 48 (id_cte -> ID .)
-    LPAR            reduce using rule 48 (id_cte -> ID .)
-    ID              reduce using rule 48 (id_cte -> ID .)
-    CTE_INT         reduce using rule 48 (id_cte -> ID .)
-    CTE_FLOAT       reduce using rule 48 (id_cte -> ID .)
-    RPAR            reduce using rule 48 (id_cte -> ID .)
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for CTE_INT resolved as shift
+  ! shift/reduce conflict for CTE_FLOAT resolved as shift
+    COMMA           shift and go to state 83
+    RPAR            reduce using rule 71 (EMPTY -> .)
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
 
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
+
+    list_exp                       shift and go to state 80
+    expression                     shift and go to state 81
+    EMPTY                          shift and go to state 82
+    exp                            shift and go to state 69
+    termino                        shift and go to state 72
+    lopb                           shift and go to state 73
+    factor                         shift and go to state 74
+    id_cte                         shift and go to state 76
+    cte                            shift and go to state 84
 
 state 63
 
-    (17) assign -> ID EQ expression . SEMICOMMA
+    (52) conditions -> IF LPAR . expression RPAR body haselse SEMICOMMA
+    (27) expression -> . exp op
+    (34) exp -> . termino lopb
+    (38) termino -> . factor lopa
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (71) EMPTY -> .
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
 
-    SEMICOMMA       shift and go to state 86
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for CTE_INT resolved as shift
+  ! shift/reduce conflict for CTE_FLOAT resolved as shift
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
 
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
+
+    expression                     shift and go to state 85
+    exp                            shift and go to state 69
+    termino                        shift and go to state 72
+    lopb                           shift and go to state 73
+    factor                         shift and go to state 74
+    id_cte                         shift and go to state 76
+    EMPTY                          shift and go to state 79
+    cte                            shift and go to state 84
 
 state 64
 
-    (18) assign -> ID EQ cte . SEMICOMMA
-    (49) id_cte -> cte .
+    (55) imprimir -> PRINT LPAR . lst_printing_options RPAR SEMICOMMA
+    (56) lst_printing_options -> . CTE_STRING COMMA lst_printing_options
+    (57) lst_printing_options -> . expression
+    (58) lst_printing_options -> . expression COMMA lst_printing_options
+    (59) lst_printing_options -> . vars
+    (60) lst_printing_options -> . vars COMMA lst_printing_options
+    (61) lst_printing_options -> . CTE_STRING
+    (27) expression -> . exp op
+    (62) vars -> . VAR lst_var
+    (34) exp -> . termino lopb
+    (38) termino -> . factor lopa
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (71) EMPTY -> .
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
 
-  ! shift/reduce conflict for SEMICOMMA resolved as shift
-    SEMICOMMA       shift and go to state 87
-    TIMES           reduce using rule 49 (id_cte -> cte .)
-    DIVIDE          reduce using rule 49 (id_cte -> cte .)
-    PLUS            reduce using rule 49 (id_cte -> cte .)
-    MINUS           reduce using rule 49 (id_cte -> cte .)
-    GT              reduce using rule 49 (id_cte -> cte .)
-    GTE             reduce using rule 49 (id_cte -> cte .)
-    LT              reduce using rule 49 (id_cte -> cte .)
-    LTE             reduce using rule 49 (id_cte -> cte .)
-    NT              reduce using rule 49 (id_cte -> cte .)
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for CTE_INT resolved as shift
+  ! shift/reduce conflict for CTE_FLOAT resolved as shift
+    CTE_STRING      shift and go to state 87
+    VAR             shift and go to state 8
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
 
-  ! SEMICOMMA       [ reduce using rule 49 (id_cte -> cte .) ]
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
 
+    lst_printing_options           shift and go to state 86
+    expression                     shift and go to state 88
+    vars                           shift and go to state 89
+    exp                            shift and go to state 69
+    termino                        shift and go to state 72
+    lopb                           shift and go to state 73
+    factor                         shift and go to state 74
+    id_cte                         shift and go to state 76
+    EMPTY                          shift and go to state 79
+    cte                            shift and go to state 84
 
 state 65
 
-    (25) expression -> exp . op
-    (26) op -> . GT exp
-    (27) op -> . GTE exp
-    (28) op -> . LT exp
-    (29) op -> . LTE exp
-    (30) op -> . NT exp
-    (31) op -> . EMPTY
-    (69) EMPTY -> .
+    (42) cycle -> WHILE body . DO LPAR expression RPAR SEMICOMMA
 
-    GT              shift and go to state 89
-    GTE             shift and go to state 90
-    LT              shift and go to state 91
-    LTE             shift and go to state 92
-    NT              shift and go to state 93
-    SEMICOMMA       reduce using rule 69 (EMPTY -> .)
-    COMMA           reduce using rule 69 (EMPTY -> .)
-    LPAR            reduce using rule 69 (EMPTY -> .)
-    PLUS            reduce using rule 69 (EMPTY -> .)
-    MINUS           reduce using rule 69 (EMPTY -> .)
-    ID              reduce using rule 69 (EMPTY -> .)
-    CTE_INT         reduce using rule 69 (EMPTY -> .)
-    CTE_FLOAT       reduce using rule 69 (EMPTY -> .)
-    RPAR            reduce using rule 69 (EMPTY -> .)
+    DO              shift and go to state 90
 
-    op                             shift and go to state 88
-    EMPTY                          shift and go to state 94
 
 state 66
 
-    (19) cte -> CTE_INT .
+    (50) id_cte -> ID .
 
-    SEMICOMMA       reduce using rule 19 (cte -> CTE_INT .)
-    TIMES           reduce using rule 19 (cte -> CTE_INT .)
-    DIVIDE          reduce using rule 19 (cte -> CTE_INT .)
-    PLUS            reduce using rule 19 (cte -> CTE_INT .)
-    MINUS           reduce using rule 19 (cte -> CTE_INT .)
-    GT              reduce using rule 19 (cte -> CTE_INT .)
-    GTE             reduce using rule 19 (cte -> CTE_INT .)
-    LT              reduce using rule 19 (cte -> CTE_INT .)
-    LTE             reduce using rule 19 (cte -> CTE_INT .)
-    NT              reduce using rule 19 (cte -> CTE_INT .)
-    COMMA           reduce using rule 19 (cte -> CTE_INT .)
-    LPAR            reduce using rule 19 (cte -> CTE_INT .)
-    ID              reduce using rule 19 (cte -> CTE_INT .)
-    CTE_INT         reduce using rule 19 (cte -> CTE_INT .)
-    CTE_FLOAT       reduce using rule 19 (cte -> CTE_INT .)
-    RPAR            reduce using rule 19 (cte -> CTE_INT .)
+    TIMES           reduce using rule 50 (id_cte -> ID .)
+    DIVIDE          reduce using rule 50 (id_cte -> ID .)
+    PLUS            reduce using rule 50 (id_cte -> ID .)
+    MINUS           reduce using rule 50 (id_cte -> ID .)
+    GT              reduce using rule 50 (id_cte -> ID .)
+    GTE             reduce using rule 50 (id_cte -> ID .)
+    LT              reduce using rule 50 (id_cte -> ID .)
+    LTE             reduce using rule 50 (id_cte -> ID .)
+    NT              reduce using rule 50 (id_cte -> ID .)
+    SEMICOMMA       reduce using rule 50 (id_cte -> ID .)
+    COMMA           reduce using rule 50 (id_cte -> ID .)
+    LPAR            reduce using rule 50 (id_cte -> ID .)
+    ID              reduce using rule 50 (id_cte -> ID .)
+    CTE_INT         reduce using rule 50 (id_cte -> ID .)
+    CTE_FLOAT       reduce using rule 50 (id_cte -> ID .)
+    RPAR            reduce using rule 50 (id_cte -> ID .)
 
 
 state 67
 
-    (20) cte -> CTE_FLOAT .
+    (19) assign -> ID EQ expression . SEMICOMMA
 
-    SEMICOMMA       reduce using rule 20 (cte -> CTE_FLOAT .)
-    TIMES           reduce using rule 20 (cte -> CTE_FLOAT .)
-    DIVIDE          reduce using rule 20 (cte -> CTE_FLOAT .)
-    PLUS            reduce using rule 20 (cte -> CTE_FLOAT .)
-    MINUS           reduce using rule 20 (cte -> CTE_FLOAT .)
-    GT              reduce using rule 20 (cte -> CTE_FLOAT .)
-    GTE             reduce using rule 20 (cte -> CTE_FLOAT .)
-    LT              reduce using rule 20 (cte -> CTE_FLOAT .)
-    LTE             reduce using rule 20 (cte -> CTE_FLOAT .)
-    NT              reduce using rule 20 (cte -> CTE_FLOAT .)
-    COMMA           reduce using rule 20 (cte -> CTE_FLOAT .)
-    LPAR            reduce using rule 20 (cte -> CTE_FLOAT .)
-    ID              reduce using rule 20 (cte -> CTE_FLOAT .)
-    CTE_INT         reduce using rule 20 (cte -> CTE_FLOAT .)
-    CTE_FLOAT       reduce using rule 20 (cte -> CTE_FLOAT .)
-    RPAR            reduce using rule 20 (cte -> CTE_FLOAT .)
+    SEMICOMMA       shift and go to state 91
 
 
 state 68
 
-    (32) exp -> termino . lopb
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (69) EMPTY -> .
+    (20) assign -> ID EQ cte . SEMICOMMA
+    (51) id_cte -> cte .
 
-  ! shift/reduce conflict for PLUS resolved as shift
-  ! shift/reduce conflict for MINUS resolved as shift
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    GT              reduce using rule 69 (EMPTY -> .)
-    GTE             reduce using rule 69 (EMPTY -> .)
-    LT              reduce using rule 69 (EMPTY -> .)
-    LTE             reduce using rule 69 (EMPTY -> .)
-    NT              reduce using rule 69 (EMPTY -> .)
-    SEMICOMMA       reduce using rule 69 (EMPTY -> .)
-    COMMA           reduce using rule 69 (EMPTY -> .)
-    LPAR            reduce using rule 69 (EMPTY -> .)
-    ID              reduce using rule 69 (EMPTY -> .)
-    CTE_INT         reduce using rule 69 (EMPTY -> .)
-    CTE_FLOAT       reduce using rule 69 (EMPTY -> .)
-    RPAR            reduce using rule 69 (EMPTY -> .)
+  ! shift/reduce conflict for SEMICOMMA resolved as shift
+    SEMICOMMA       shift and go to state 92
+    TIMES           reduce using rule 51 (id_cte -> cte .)
+    DIVIDE          reduce using rule 51 (id_cte -> cte .)
+    PLUS            reduce using rule 51 (id_cte -> cte .)
+    MINUS           reduce using rule 51 (id_cte -> cte .)
+    GT              reduce using rule 51 (id_cte -> cte .)
+    GTE             reduce using rule 51 (id_cte -> cte .)
+    LT              reduce using rule 51 (id_cte -> cte .)
+    LTE             reduce using rule 51 (id_cte -> cte .)
+    NT              reduce using rule 51 (id_cte -> cte .)
 
-  ! PLUS            [ reduce using rule 69 (EMPTY -> .) ]
-  ! MINUS           [ reduce using rule 69 (EMPTY -> .) ]
+  ! SEMICOMMA       [ reduce using rule 51 (id_cte -> cte .) ]
 
-    lopb                           shift and go to state 95
-    EMPTY                          shift and go to state 75
 
 state 69
 
-    (46) factor -> lopb . id_cte
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
+    (27) expression -> exp . op
+    (28) op -> . GT exp
+    (29) op -> . GTE exp
+    (30) op -> . LT exp
+    (31) op -> . LTE exp
+    (32) op -> . NT exp
+    (33) op -> . EMPTY
+    (71) EMPTY -> .
 
-    ID              shift and go to state 62
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
+    GT              shift and go to state 94
+    GTE             shift and go to state 95
+    LT              shift and go to state 96
+    LTE             shift and go to state 97
+    NT              shift and go to state 98
+    SEMICOMMA       reduce using rule 71 (EMPTY -> .)
+    COMMA           reduce using rule 71 (EMPTY -> .)
+    LPAR            reduce using rule 71 (EMPTY -> .)
+    PLUS            reduce using rule 71 (EMPTY -> .)
+    MINUS           reduce using rule 71 (EMPTY -> .)
+    ID              reduce using rule 71 (EMPTY -> .)
+    CTE_INT         reduce using rule 71 (EMPTY -> .)
+    CTE_FLOAT       reduce using rule 71 (EMPTY -> .)
+    RPAR            reduce using rule 71 (EMPTY -> .)
 
-    id_cte                         shift and go to state 96
-    cte                            shift and go to state 80
+    op                             shift and go to state 93
+    EMPTY                          shift and go to state 99
 
 state 70
 
-    (36) termino -> factor . lopa
-    (37) lopa -> . TIMES factor
-    (38) lopa -> . DIVIDE factor
-    (39) lopa -> . EMPTY
-    (69) EMPTY -> .
+    (21) cte -> CTE_INT .
 
-    TIMES           shift and go to state 98
-    DIVIDE          shift and go to state 99
-    PLUS            reduce using rule 69 (EMPTY -> .)
-    MINUS           reduce using rule 69 (EMPTY -> .)
-    GT              reduce using rule 69 (EMPTY -> .)
-    GTE             reduce using rule 69 (EMPTY -> .)
-    LT              reduce using rule 69 (EMPTY -> .)
-    LTE             reduce using rule 69 (EMPTY -> .)
-    NT              reduce using rule 69 (EMPTY -> .)
-    SEMICOMMA       reduce using rule 69 (EMPTY -> .)
-    COMMA           reduce using rule 69 (EMPTY -> .)
-    LPAR            reduce using rule 69 (EMPTY -> .)
-    ID              reduce using rule 69 (EMPTY -> .)
-    CTE_INT         reduce using rule 69 (EMPTY -> .)
-    CTE_FLOAT       reduce using rule 69 (EMPTY -> .)
-    RPAR            reduce using rule 69 (EMPTY -> .)
+    SEMICOMMA       reduce using rule 21 (cte -> CTE_INT .)
+    TIMES           reduce using rule 21 (cte -> CTE_INT .)
+    DIVIDE          reduce using rule 21 (cte -> CTE_INT .)
+    PLUS            reduce using rule 21 (cte -> CTE_INT .)
+    MINUS           reduce using rule 21 (cte -> CTE_INT .)
+    GT              reduce using rule 21 (cte -> CTE_INT .)
+    GTE             reduce using rule 21 (cte -> CTE_INT .)
+    LT              reduce using rule 21 (cte -> CTE_INT .)
+    LTE             reduce using rule 21 (cte -> CTE_INT .)
+    NT              reduce using rule 21 (cte -> CTE_INT .)
+    COMMA           reduce using rule 21 (cte -> CTE_INT .)
+    LPAR            reduce using rule 21 (cte -> CTE_INT .)
+    ID              reduce using rule 21 (cte -> CTE_INT .)
+    CTE_INT         reduce using rule 21 (cte -> CTE_INT .)
+    CTE_FLOAT       reduce using rule 21 (cte -> CTE_INT .)
+    RPAR            reduce using rule 21 (cte -> CTE_INT .)
 
-    lopa                           shift and go to state 97
-    EMPTY                          shift and go to state 100
 
 state 71
 
-    (45) factor -> LPAR . expression RPAR
-    (25) expression -> . exp op
-    (32) exp -> . termino lopb
-    (36) termino -> . factor lopa
-    (45) factor -> . LPAR expression RPAR
-    (46) factor -> . lopb id_cte
-    (47) factor -> . id_cte
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (69) EMPTY -> .
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
+    (22) cte -> CTE_FLOAT .
 
-  ! shift/reduce conflict for ID resolved as shift
-  ! shift/reduce conflict for CTE_INT resolved as shift
-  ! shift/reduce conflict for CTE_FLOAT resolved as shift
-    LPAR            shift and go to state 71
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    ID              shift and go to state 62
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
+    SEMICOMMA       reduce using rule 22 (cte -> CTE_FLOAT .)
+    TIMES           reduce using rule 22 (cte -> CTE_FLOAT .)
+    DIVIDE          reduce using rule 22 (cte -> CTE_FLOAT .)
+    PLUS            reduce using rule 22 (cte -> CTE_FLOAT .)
+    MINUS           reduce using rule 22 (cte -> CTE_FLOAT .)
+    GT              reduce using rule 22 (cte -> CTE_FLOAT .)
+    GTE             reduce using rule 22 (cte -> CTE_FLOAT .)
+    LT              reduce using rule 22 (cte -> CTE_FLOAT .)
+    LTE             reduce using rule 22 (cte -> CTE_FLOAT .)
+    NT              reduce using rule 22 (cte -> CTE_FLOAT .)
+    COMMA           reduce using rule 22 (cte -> CTE_FLOAT .)
+    LPAR            reduce using rule 22 (cte -> CTE_FLOAT .)
+    ID              reduce using rule 22 (cte -> CTE_FLOAT .)
+    CTE_INT         reduce using rule 22 (cte -> CTE_FLOAT .)
+    CTE_FLOAT       reduce using rule 22 (cte -> CTE_FLOAT .)
+    RPAR            reduce using rule 22 (cte -> CTE_FLOAT .)
 
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_INT         [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_FLOAT       [ reduce using rule 69 (EMPTY -> .) ]
-
-    expression                     shift and go to state 101
-    exp                            shift and go to state 65
-    termino                        shift and go to state 68
-    lopb                           shift and go to state 69
-    factor                         shift and go to state 70
-    id_cte                         shift and go to state 72
-    EMPTY                          shift and go to state 75
-    cte                            shift and go to state 80
 
 state 72
 
-    (47) factor -> id_cte .
+    (34) exp -> termino . lopb
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (71) EMPTY -> .
 
-    TIMES           reduce using rule 47 (factor -> id_cte .)
-    DIVIDE          reduce using rule 47 (factor -> id_cte .)
-    PLUS            reduce using rule 47 (factor -> id_cte .)
-    MINUS           reduce using rule 47 (factor -> id_cte .)
-    GT              reduce using rule 47 (factor -> id_cte .)
-    GTE             reduce using rule 47 (factor -> id_cte .)
-    LT              reduce using rule 47 (factor -> id_cte .)
-    LTE             reduce using rule 47 (factor -> id_cte .)
-    NT              reduce using rule 47 (factor -> id_cte .)
-    SEMICOMMA       reduce using rule 47 (factor -> id_cte .)
-    COMMA           reduce using rule 47 (factor -> id_cte .)
-    LPAR            reduce using rule 47 (factor -> id_cte .)
-    ID              reduce using rule 47 (factor -> id_cte .)
-    CTE_INT         reduce using rule 47 (factor -> id_cte .)
-    CTE_FLOAT       reduce using rule 47 (factor -> id_cte .)
-    RPAR            reduce using rule 47 (factor -> id_cte .)
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    GT              reduce using rule 71 (EMPTY -> .)
+    GTE             reduce using rule 71 (EMPTY -> .)
+    LT              reduce using rule 71 (EMPTY -> .)
+    LTE             reduce using rule 71 (EMPTY -> .)
+    NT              reduce using rule 71 (EMPTY -> .)
+    SEMICOMMA       reduce using rule 71 (EMPTY -> .)
+    COMMA           reduce using rule 71 (EMPTY -> .)
+    LPAR            reduce using rule 71 (EMPTY -> .)
+    ID              reduce using rule 71 (EMPTY -> .)
+    CTE_INT         reduce using rule 71 (EMPTY -> .)
+    CTE_FLOAT       reduce using rule 71 (EMPTY -> .)
+    RPAR            reduce using rule 71 (EMPTY -> .)
 
+  ! PLUS            [ reduce using rule 71 (EMPTY -> .) ]
+  ! MINUS           [ reduce using rule 71 (EMPTY -> .) ]
+
+    lopb                           shift and go to state 100
+    EMPTY                          shift and go to state 79
 
 state 73
 
-    (33) lopb -> PLUS . termino
-    (36) termino -> . factor lopa
-    (45) factor -> . LPAR expression RPAR
-    (46) factor -> . lopb id_cte
-    (47) factor -> . id_cte
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (69) EMPTY -> .
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
+    (48) factor -> lopb . id_cte
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
 
-  ! shift/reduce conflict for ID resolved as shift
-  ! shift/reduce conflict for CTE_INT resolved as shift
-  ! shift/reduce conflict for CTE_FLOAT resolved as shift
-    LPAR            shift and go to state 71
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    ID              shift and go to state 62
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
 
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_INT         [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_FLOAT       [ reduce using rule 69 (EMPTY -> .) ]
-
-    termino                        shift and go to state 102
-    factor                         shift and go to state 70
-    lopb                           shift and go to state 69
-    id_cte                         shift and go to state 72
-    EMPTY                          shift and go to state 75
-    cte                            shift and go to state 80
+    id_cte                         shift and go to state 101
+    cte                            shift and go to state 84
 
 state 74
 
-    (34) lopb -> MINUS . termino
-    (36) termino -> . factor lopa
-    (45) factor -> . LPAR expression RPAR
-    (46) factor -> . lopb id_cte
-    (47) factor -> . id_cte
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (69) EMPTY -> .
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
+    (38) termino -> factor . lopa
+    (39) lopa -> . TIMES factor
+    (40) lopa -> . DIVIDE factor
+    (41) lopa -> . EMPTY
+    (71) EMPTY -> .
+
+    TIMES           shift and go to state 103
+    DIVIDE          shift and go to state 104
+    PLUS            reduce using rule 71 (EMPTY -> .)
+    MINUS           reduce using rule 71 (EMPTY -> .)
+    GT              reduce using rule 71 (EMPTY -> .)
+    GTE             reduce using rule 71 (EMPTY -> .)
+    LT              reduce using rule 71 (EMPTY -> .)
+    LTE             reduce using rule 71 (EMPTY -> .)
+    NT              reduce using rule 71 (EMPTY -> .)
+    SEMICOMMA       reduce using rule 71 (EMPTY -> .)
+    COMMA           reduce using rule 71 (EMPTY -> .)
+    LPAR            reduce using rule 71 (EMPTY -> .)
+    ID              reduce using rule 71 (EMPTY -> .)
+    CTE_INT         reduce using rule 71 (EMPTY -> .)
+    CTE_FLOAT       reduce using rule 71 (EMPTY -> .)
+    RPAR            reduce using rule 71 (EMPTY -> .)
+
+    lopa                           shift and go to state 102
+    EMPTY                          shift and go to state 105
+
+state 75
+
+    (47) factor -> LPAR . expression RPAR
+    (27) expression -> . exp op
+    (34) exp -> . termino lopb
+    (38) termino -> . factor lopa
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (71) EMPTY -> .
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
 
   ! shift/reduce conflict for ID resolved as shift
   ! shift/reduce conflict for CTE_INT resolved as shift
   ! shift/reduce conflict for CTE_FLOAT resolved as shift
-    LPAR            shift and go to state 71
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    ID              shift and go to state 62
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
 
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_INT         [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_FLOAT       [ reduce using rule 69 (EMPTY -> .) ]
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
 
-    termino                        shift and go to state 103
-    factor                         shift and go to state 70
-    lopb                           shift and go to state 69
-    id_cte                         shift and go to state 72
-    EMPTY                          shift and go to state 75
-    cte                            shift and go to state 80
-
-state 75
-
-    (35) lopb -> EMPTY .
-
-    ID              reduce using rule 35 (lopb -> EMPTY .)
-    CTE_INT         reduce using rule 35 (lopb -> EMPTY .)
-    CTE_FLOAT       reduce using rule 35 (lopb -> EMPTY .)
-    GT              reduce using rule 35 (lopb -> EMPTY .)
-    GTE             reduce using rule 35 (lopb -> EMPTY .)
-    LT              reduce using rule 35 (lopb -> EMPTY .)
-    LTE             reduce using rule 35 (lopb -> EMPTY .)
-    NT              reduce using rule 35 (lopb -> EMPTY .)
-    SEMICOMMA       reduce using rule 35 (lopb -> EMPTY .)
-    COMMA           reduce using rule 35 (lopb -> EMPTY .)
-    LPAR            reduce using rule 35 (lopb -> EMPTY .)
-    PLUS            reduce using rule 35 (lopb -> EMPTY .)
-    MINUS           reduce using rule 35 (lopb -> EMPTY .)
-    RPAR            reduce using rule 35 (lopb -> EMPTY .)
-
+    expression                     shift and go to state 106
+    exp                            shift and go to state 69
+    termino                        shift and go to state 72
+    lopb                           shift and go to state 73
+    factor                         shift and go to state 74
+    id_cte                         shift and go to state 76
+    EMPTY                          shift and go to state 79
+    cte                            shift and go to state 84
 
 state 76
 
-    (41) fcall -> ID LPAR list_exp . RPAR SEMICOMMA
+    (49) factor -> id_cte .
 
-    RPAR            shift and go to state 104
+    TIMES           reduce using rule 49 (factor -> id_cte .)
+    DIVIDE          reduce using rule 49 (factor -> id_cte .)
+    PLUS            reduce using rule 49 (factor -> id_cte .)
+    MINUS           reduce using rule 49 (factor -> id_cte .)
+    GT              reduce using rule 49 (factor -> id_cte .)
+    GTE             reduce using rule 49 (factor -> id_cte .)
+    LT              reduce using rule 49 (factor -> id_cte .)
+    LTE             reduce using rule 49 (factor -> id_cte .)
+    NT              reduce using rule 49 (factor -> id_cte .)
+    SEMICOMMA       reduce using rule 49 (factor -> id_cte .)
+    COMMA           reduce using rule 49 (factor -> id_cte .)
+    LPAR            reduce using rule 49 (factor -> id_cte .)
+    ID              reduce using rule 49 (factor -> id_cte .)
+    CTE_INT         reduce using rule 49 (factor -> id_cte .)
+    CTE_FLOAT       reduce using rule 49 (factor -> id_cte .)
+    RPAR            reduce using rule 49 (factor -> id_cte .)
 
 
 state 77
 
-    (42) list_exp -> expression . list_exp
-    (42) list_exp -> . expression list_exp
-    (43) list_exp -> . EMPTY
-    (44) list_exp -> . COMMA list_exp
-    (25) expression -> . exp op
-    (69) EMPTY -> .
-    (32) exp -> . termino lopb
-    (36) termino -> . factor lopa
-    (45) factor -> . LPAR expression RPAR
-    (46) factor -> . lopb id_cte
-    (47) factor -> . id_cte
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
+    (35) lopb -> PLUS . termino
+    (38) termino -> . factor lopa
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (71) EMPTY -> .
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
 
   ! shift/reduce conflict for ID resolved as shift
   ! shift/reduce conflict for CTE_INT resolved as shift
   ! shift/reduce conflict for CTE_FLOAT resolved as shift
-    COMMA           shift and go to state 79
-    RPAR            reduce using rule 69 (EMPTY -> .)
-    LPAR            shift and go to state 71
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    ID              shift and go to state 62
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
 
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_INT         [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_FLOAT       [ reduce using rule 69 (EMPTY -> .) ]
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
 
-    expression                     shift and go to state 77
-    list_exp                       shift and go to state 105
-    EMPTY                          shift and go to state 78
-    exp                            shift and go to state 65
-    termino                        shift and go to state 68
-    lopb                           shift and go to state 69
-    factor                         shift and go to state 70
-    id_cte                         shift and go to state 72
-    cte                            shift and go to state 80
+    termino                        shift and go to state 107
+    factor                         shift and go to state 74
+    lopb                           shift and go to state 73
+    id_cte                         shift and go to state 76
+    EMPTY                          shift and go to state 79
+    cte                            shift and go to state 84
 
 state 78
 
-    (43) list_exp -> EMPTY .
-    (35) lopb -> EMPTY .
-
-    RPAR            reduce using rule 43 (list_exp -> EMPTY .)
-    ID              reduce using rule 35 (lopb -> EMPTY .)
-    CTE_INT         reduce using rule 35 (lopb -> EMPTY .)
-    CTE_FLOAT       reduce using rule 35 (lopb -> EMPTY .)
-
-
-state 79
-
-    (44) list_exp -> COMMA . list_exp
-    (42) list_exp -> . expression list_exp
-    (43) list_exp -> . EMPTY
-    (44) list_exp -> . COMMA list_exp
-    (25) expression -> . exp op
-    (69) EMPTY -> .
-    (32) exp -> . termino lopb
-    (36) termino -> . factor lopa
-    (45) factor -> . LPAR expression RPAR
-    (46) factor -> . lopb id_cte
-    (47) factor -> . id_cte
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
+    (36) lopb -> MINUS . termino
+    (38) termino -> . factor lopa
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (71) EMPTY -> .
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
 
   ! shift/reduce conflict for ID resolved as shift
   ! shift/reduce conflict for CTE_INT resolved as shift
   ! shift/reduce conflict for CTE_FLOAT resolved as shift
-    COMMA           shift and go to state 79
-    RPAR            reduce using rule 69 (EMPTY -> .)
-    LPAR            shift and go to state 71
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    ID              shift and go to state 62
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
 
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_INT         [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_FLOAT       [ reduce using rule 69 (EMPTY -> .) ]
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
 
-    list_exp                       shift and go to state 106
-    expression                     shift and go to state 77
-    EMPTY                          shift and go to state 78
-    exp                            shift and go to state 65
-    termino                        shift and go to state 68
-    lopb                           shift and go to state 69
-    factor                         shift and go to state 70
-    id_cte                         shift and go to state 72
-    cte                            shift and go to state 80
+    termino                        shift and go to state 108
+    factor                         shift and go to state 74
+    lopb                           shift and go to state 73
+    id_cte                         shift and go to state 76
+    EMPTY                          shift and go to state 79
+    cte                            shift and go to state 84
+
+state 79
+
+    (37) lopb -> EMPTY .
+
+    ID              reduce using rule 37 (lopb -> EMPTY .)
+    CTE_INT         reduce using rule 37 (lopb -> EMPTY .)
+    CTE_FLOAT       reduce using rule 37 (lopb -> EMPTY .)
+    GT              reduce using rule 37 (lopb -> EMPTY .)
+    GTE             reduce using rule 37 (lopb -> EMPTY .)
+    LT              reduce using rule 37 (lopb -> EMPTY .)
+    LTE             reduce using rule 37 (lopb -> EMPTY .)
+    NT              reduce using rule 37 (lopb -> EMPTY .)
+    SEMICOMMA       reduce using rule 37 (lopb -> EMPTY .)
+    COMMA           reduce using rule 37 (lopb -> EMPTY .)
+    LPAR            reduce using rule 37 (lopb -> EMPTY .)
+    PLUS            reduce using rule 37 (lopb -> EMPTY .)
+    MINUS           reduce using rule 37 (lopb -> EMPTY .)
+    RPAR            reduce using rule 37 (lopb -> EMPTY .)
+
 
 state 80
 
-    (49) id_cte -> cte .
+    (43) fcall -> ID LPAR list_exp . RPAR SEMICOMMA
 
-    TIMES           reduce using rule 49 (id_cte -> cte .)
-    DIVIDE          reduce using rule 49 (id_cte -> cte .)
-    PLUS            reduce using rule 49 (id_cte -> cte .)
-    MINUS           reduce using rule 49 (id_cte -> cte .)
-    GT              reduce using rule 49 (id_cte -> cte .)
-    GTE             reduce using rule 49 (id_cte -> cte .)
-    LT              reduce using rule 49 (id_cte -> cte .)
-    LTE             reduce using rule 49 (id_cte -> cte .)
-    NT              reduce using rule 49 (id_cte -> cte .)
-    COMMA           reduce using rule 49 (id_cte -> cte .)
-    LPAR            reduce using rule 49 (id_cte -> cte .)
-    ID              reduce using rule 49 (id_cte -> cte .)
-    CTE_INT         reduce using rule 49 (id_cte -> cte .)
-    CTE_FLOAT       reduce using rule 49 (id_cte -> cte .)
-    RPAR            reduce using rule 49 (id_cte -> cte .)
-    SEMICOMMA       reduce using rule 49 (id_cte -> cte .)
+    RPAR            shift and go to state 109
 
 
 state 81
 
-    (50) conditions -> IF LPAR expression . RPAR body haselse SEMICOMMA
+    (44) list_exp -> expression . list_exp
+    (44) list_exp -> . expression list_exp
+    (45) list_exp -> . EMPTY
+    (46) list_exp -> . COMMA list_exp
+    (27) expression -> . exp op
+    (71) EMPTY -> .
+    (34) exp -> . termino lopb
+    (38) termino -> . factor lopa
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
 
-    RPAR            shift and go to state 107
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for CTE_INT resolved as shift
+  ! shift/reduce conflict for CTE_FLOAT resolved as shift
+    COMMA           shift and go to state 83
+    RPAR            reduce using rule 71 (EMPTY -> .)
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
 
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
+
+    expression                     shift and go to state 81
+    list_exp                       shift and go to state 110
+    EMPTY                          shift and go to state 82
+    exp                            shift and go to state 69
+    termino                        shift and go to state 72
+    lopb                           shift and go to state 73
+    factor                         shift and go to state 74
+    id_cte                         shift and go to state 76
+    cte                            shift and go to state 84
 
 state 82
 
-    (53) imprimir -> PRINT LPAR lst_printing_options . RPAR SEMICOMMA
+    (45) list_exp -> EMPTY .
+    (37) lopb -> EMPTY .
 
-    RPAR            shift and go to state 108
+    RPAR            reduce using rule 45 (list_exp -> EMPTY .)
+    ID              reduce using rule 37 (lopb -> EMPTY .)
+    CTE_INT         reduce using rule 37 (lopb -> EMPTY .)
+    CTE_FLOAT       reduce using rule 37 (lopb -> EMPTY .)
 
 
 state 83
 
-    (54) lst_printing_options -> CTE_STRING . COMMA lst_printing_options
-    (59) lst_printing_options -> CTE_STRING .
+    (46) list_exp -> COMMA . list_exp
+    (44) list_exp -> . expression list_exp
+    (45) list_exp -> . EMPTY
+    (46) list_exp -> . COMMA list_exp
+    (27) expression -> . exp op
+    (71) EMPTY -> .
+    (34) exp -> . termino lopb
+    (38) termino -> . factor lopa
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
 
-    COMMA           shift and go to state 109
-    RPAR            reduce using rule 59 (lst_printing_options -> CTE_STRING .)
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for CTE_INT resolved as shift
+  ! shift/reduce conflict for CTE_FLOAT resolved as shift
+    COMMA           shift and go to state 83
+    RPAR            reduce using rule 71 (EMPTY -> .)
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
 
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
+
+    list_exp                       shift and go to state 111
+    expression                     shift and go to state 81
+    EMPTY                          shift and go to state 82
+    exp                            shift and go to state 69
+    termino                        shift and go to state 72
+    lopb                           shift and go to state 73
+    factor                         shift and go to state 74
+    id_cte                         shift and go to state 76
+    cte                            shift and go to state 84
 
 state 84
 
-    (55) lst_printing_options -> expression .
-    (56) lst_printing_options -> expression . COMMA lst_printing_options
+    (51) id_cte -> cte .
 
-    RPAR            reduce using rule 55 (lst_printing_options -> expression .)
-    COMMA           shift and go to state 110
+    TIMES           reduce using rule 51 (id_cte -> cte .)
+    DIVIDE          reduce using rule 51 (id_cte -> cte .)
+    PLUS            reduce using rule 51 (id_cte -> cte .)
+    MINUS           reduce using rule 51 (id_cte -> cte .)
+    GT              reduce using rule 51 (id_cte -> cte .)
+    GTE             reduce using rule 51 (id_cte -> cte .)
+    LT              reduce using rule 51 (id_cte -> cte .)
+    LTE             reduce using rule 51 (id_cte -> cte .)
+    NT              reduce using rule 51 (id_cte -> cte .)
+    COMMA           reduce using rule 51 (id_cte -> cte .)
+    LPAR            reduce using rule 51 (id_cte -> cte .)
+    ID              reduce using rule 51 (id_cte -> cte .)
+    CTE_INT         reduce using rule 51 (id_cte -> cte .)
+    CTE_FLOAT       reduce using rule 51 (id_cte -> cte .)
+    RPAR            reduce using rule 51 (id_cte -> cte .)
+    SEMICOMMA       reduce using rule 51 (id_cte -> cte .)
 
 
 state 85
 
-    (57) lst_printing_options -> vars .
-    (58) lst_printing_options -> vars . COMMA lst_printing_options
+    (52) conditions -> IF LPAR expression . RPAR body haselse SEMICOMMA
 
-    RPAR            reduce using rule 57 (lst_printing_options -> vars .)
-    COMMA           shift and go to state 111
+    RPAR            shift and go to state 112
 
 
 state 86
 
-    (17) assign -> ID EQ expression SEMICOMMA .
+    (55) imprimir -> PRINT LPAR lst_printing_options . RPAR SEMICOMMA
 
-    ID              reduce using rule 17 (assign -> ID EQ expression SEMICOMMA .)
-    IF              reduce using rule 17 (assign -> ID EQ expression SEMICOMMA .)
-    PRINT           reduce using rule 17 (assign -> ID EQ expression SEMICOMMA .)
-    VAR             reduce using rule 17 (assign -> ID EQ expression SEMICOMMA .)
-    RBRACE          reduce using rule 17 (assign -> ID EQ expression SEMICOMMA .)
+    RPAR            shift and go to state 113
 
 
 state 87
 
-    (18) assign -> ID EQ cte SEMICOMMA .
+    (56) lst_printing_options -> CTE_STRING . COMMA lst_printing_options
+    (61) lst_printing_options -> CTE_STRING .
 
-    ID              reduce using rule 18 (assign -> ID EQ cte SEMICOMMA .)
-    IF              reduce using rule 18 (assign -> ID EQ cte SEMICOMMA .)
-    PRINT           reduce using rule 18 (assign -> ID EQ cte SEMICOMMA .)
-    VAR             reduce using rule 18 (assign -> ID EQ cte SEMICOMMA .)
-    RBRACE          reduce using rule 18 (assign -> ID EQ cte SEMICOMMA .)
+    COMMA           shift and go to state 114
+    RPAR            reduce using rule 61 (lst_printing_options -> CTE_STRING .)
 
 
 state 88
 
-    (25) expression -> exp op .
+    (57) lst_printing_options -> expression .
+    (58) lst_printing_options -> expression . COMMA lst_printing_options
 
-    SEMICOMMA       reduce using rule 25 (expression -> exp op .)
-    COMMA           reduce using rule 25 (expression -> exp op .)
-    LPAR            reduce using rule 25 (expression -> exp op .)
-    PLUS            reduce using rule 25 (expression -> exp op .)
-    MINUS           reduce using rule 25 (expression -> exp op .)
-    ID              reduce using rule 25 (expression -> exp op .)
-    CTE_INT         reduce using rule 25 (expression -> exp op .)
-    CTE_FLOAT       reduce using rule 25 (expression -> exp op .)
-    RPAR            reduce using rule 25 (expression -> exp op .)
+    RPAR            reduce using rule 57 (lst_printing_options -> expression .)
+    COMMA           shift and go to state 115
 
 
 state 89
 
-    (26) op -> GT . exp
-    (32) exp -> . termino lopb
-    (36) termino -> . factor lopa
-    (45) factor -> . LPAR expression RPAR
-    (46) factor -> . lopb id_cte
-    (47) factor -> . id_cte
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (69) EMPTY -> .
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
+    (59) lst_printing_options -> vars .
+    (60) lst_printing_options -> vars . COMMA lst_printing_options
 
-  ! shift/reduce conflict for ID resolved as shift
-  ! shift/reduce conflict for CTE_INT resolved as shift
-  ! shift/reduce conflict for CTE_FLOAT resolved as shift
-    LPAR            shift and go to state 71
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    ID              shift and go to state 62
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
+    RPAR            reduce using rule 59 (lst_printing_options -> vars .)
+    COMMA           shift and go to state 116
 
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_INT         [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_FLOAT       [ reduce using rule 69 (EMPTY -> .) ]
-
-    exp                            shift and go to state 112
-    termino                        shift and go to state 68
-    lopb                           shift and go to state 69
-    factor                         shift and go to state 70
-    id_cte                         shift and go to state 72
-    EMPTY                          shift and go to state 75
-    cte                            shift and go to state 80
 
 state 90
 
-    (27) op -> GTE . exp
-    (32) exp -> . termino lopb
-    (36) termino -> . factor lopa
-    (45) factor -> . LPAR expression RPAR
-    (46) factor -> . lopb id_cte
-    (47) factor -> . id_cte
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (69) EMPTY -> .
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
+    (42) cycle -> WHILE body DO . LPAR expression RPAR SEMICOMMA
 
-  ! shift/reduce conflict for ID resolved as shift
-  ! shift/reduce conflict for CTE_INT resolved as shift
-  ! shift/reduce conflict for CTE_FLOAT resolved as shift
-    LPAR            shift and go to state 71
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    ID              shift and go to state 62
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
+    LPAR            shift and go to state 117
 
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_INT         [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_FLOAT       [ reduce using rule 69 (EMPTY -> .) ]
-
-    exp                            shift and go to state 113
-    termino                        shift and go to state 68
-    lopb                           shift and go to state 69
-    factor                         shift and go to state 70
-    id_cte                         shift and go to state 72
-    EMPTY                          shift and go to state 75
-    cte                            shift and go to state 80
 
 state 91
 
-    (28) op -> LT . exp
-    (32) exp -> . termino lopb
-    (36) termino -> . factor lopa
-    (45) factor -> . LPAR expression RPAR
-    (46) factor -> . lopb id_cte
-    (47) factor -> . id_cte
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (69) EMPTY -> .
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
+    (19) assign -> ID EQ expression SEMICOMMA .
 
-  ! shift/reduce conflict for ID resolved as shift
-  ! shift/reduce conflict for CTE_INT resolved as shift
-  ! shift/reduce conflict for CTE_FLOAT resolved as shift
-    LPAR            shift and go to state 71
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    ID              shift and go to state 62
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
+    ID              reduce using rule 19 (assign -> ID EQ expression SEMICOMMA .)
+    IF              reduce using rule 19 (assign -> ID EQ expression SEMICOMMA .)
+    PRINT           reduce using rule 19 (assign -> ID EQ expression SEMICOMMA .)
+    WHILE           reduce using rule 19 (assign -> ID EQ expression SEMICOMMA .)
+    VAR             reduce using rule 19 (assign -> ID EQ expression SEMICOMMA .)
+    RBRACE          reduce using rule 19 (assign -> ID EQ expression SEMICOMMA .)
 
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_INT         [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_FLOAT       [ reduce using rule 69 (EMPTY -> .) ]
-
-    exp                            shift and go to state 114
-    termino                        shift and go to state 68
-    lopb                           shift and go to state 69
-    factor                         shift and go to state 70
-    id_cte                         shift and go to state 72
-    EMPTY                          shift and go to state 75
-    cte                            shift and go to state 80
 
 state 92
 
-    (29) op -> LTE . exp
-    (32) exp -> . termino lopb
-    (36) termino -> . factor lopa
-    (45) factor -> . LPAR expression RPAR
-    (46) factor -> . lopb id_cte
-    (47) factor -> . id_cte
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (69) EMPTY -> .
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
+    (20) assign -> ID EQ cte SEMICOMMA .
 
-  ! shift/reduce conflict for ID resolved as shift
-  ! shift/reduce conflict for CTE_INT resolved as shift
-  ! shift/reduce conflict for CTE_FLOAT resolved as shift
-    LPAR            shift and go to state 71
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    ID              shift and go to state 62
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
+    ID              reduce using rule 20 (assign -> ID EQ cte SEMICOMMA .)
+    IF              reduce using rule 20 (assign -> ID EQ cte SEMICOMMA .)
+    PRINT           reduce using rule 20 (assign -> ID EQ cte SEMICOMMA .)
+    WHILE           reduce using rule 20 (assign -> ID EQ cte SEMICOMMA .)
+    VAR             reduce using rule 20 (assign -> ID EQ cte SEMICOMMA .)
+    RBRACE          reduce using rule 20 (assign -> ID EQ cte SEMICOMMA .)
 
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_INT         [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_FLOAT       [ reduce using rule 69 (EMPTY -> .) ]
-
-    exp                            shift and go to state 115
-    termino                        shift and go to state 68
-    lopb                           shift and go to state 69
-    factor                         shift and go to state 70
-    id_cte                         shift and go to state 72
-    EMPTY                          shift and go to state 75
-    cte                            shift and go to state 80
 
 state 93
 
-    (30) op -> NT . exp
-    (32) exp -> . termino lopb
-    (36) termino -> . factor lopa
-    (45) factor -> . LPAR expression RPAR
-    (46) factor -> . lopb id_cte
-    (47) factor -> . id_cte
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (69) EMPTY -> .
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
+    (27) expression -> exp op .
 
-  ! shift/reduce conflict for ID resolved as shift
-  ! shift/reduce conflict for CTE_INT resolved as shift
-  ! shift/reduce conflict for CTE_FLOAT resolved as shift
-    LPAR            shift and go to state 71
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    ID              shift and go to state 62
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
+    SEMICOMMA       reduce using rule 27 (expression -> exp op .)
+    COMMA           reduce using rule 27 (expression -> exp op .)
+    LPAR            reduce using rule 27 (expression -> exp op .)
+    PLUS            reduce using rule 27 (expression -> exp op .)
+    MINUS           reduce using rule 27 (expression -> exp op .)
+    ID              reduce using rule 27 (expression -> exp op .)
+    CTE_INT         reduce using rule 27 (expression -> exp op .)
+    CTE_FLOAT       reduce using rule 27 (expression -> exp op .)
+    RPAR            reduce using rule 27 (expression -> exp op .)
 
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_INT         [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_FLOAT       [ reduce using rule 69 (EMPTY -> .) ]
-
-    exp                            shift and go to state 116
-    termino                        shift and go to state 68
-    lopb                           shift and go to state 69
-    factor                         shift and go to state 70
-    id_cte                         shift and go to state 72
-    EMPTY                          shift and go to state 75
-    cte                            shift and go to state 80
 
 state 94
 
-    (31) op -> EMPTY .
+    (28) op -> GT . exp
+    (34) exp -> . termino lopb
+    (38) termino -> . factor lopa
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (71) EMPTY -> .
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
 
-    SEMICOMMA       reduce using rule 31 (op -> EMPTY .)
-    COMMA           reduce using rule 31 (op -> EMPTY .)
-    LPAR            reduce using rule 31 (op -> EMPTY .)
-    PLUS            reduce using rule 31 (op -> EMPTY .)
-    MINUS           reduce using rule 31 (op -> EMPTY .)
-    ID              reduce using rule 31 (op -> EMPTY .)
-    CTE_INT         reduce using rule 31 (op -> EMPTY .)
-    CTE_FLOAT       reduce using rule 31 (op -> EMPTY .)
-    RPAR            reduce using rule 31 (op -> EMPTY .)
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for CTE_INT resolved as shift
+  ! shift/reduce conflict for CTE_FLOAT resolved as shift
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
 
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
+
+    exp                            shift and go to state 118
+    termino                        shift and go to state 72
+    lopb                           shift and go to state 73
+    factor                         shift and go to state 74
+    id_cte                         shift and go to state 76
+    EMPTY                          shift and go to state 79
+    cte                            shift and go to state 84
 
 state 95
 
-    (32) exp -> termino lopb .
+    (29) op -> GTE . exp
+    (34) exp -> . termino lopb
+    (38) termino -> . factor lopa
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (71) EMPTY -> .
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
 
-    GT              reduce using rule 32 (exp -> termino lopb .)
-    GTE             reduce using rule 32 (exp -> termino lopb .)
-    LT              reduce using rule 32 (exp -> termino lopb .)
-    LTE             reduce using rule 32 (exp -> termino lopb .)
-    NT              reduce using rule 32 (exp -> termino lopb .)
-    SEMICOMMA       reduce using rule 32 (exp -> termino lopb .)
-    COMMA           reduce using rule 32 (exp -> termino lopb .)
-    LPAR            reduce using rule 32 (exp -> termino lopb .)
-    PLUS            reduce using rule 32 (exp -> termino lopb .)
-    MINUS           reduce using rule 32 (exp -> termino lopb .)
-    ID              reduce using rule 32 (exp -> termino lopb .)
-    CTE_INT         reduce using rule 32 (exp -> termino lopb .)
-    CTE_FLOAT       reduce using rule 32 (exp -> termino lopb .)
-    RPAR            reduce using rule 32 (exp -> termino lopb .)
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for CTE_INT resolved as shift
+  ! shift/reduce conflict for CTE_FLOAT resolved as shift
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
 
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
+
+    exp                            shift and go to state 119
+    termino                        shift and go to state 72
+    lopb                           shift and go to state 73
+    factor                         shift and go to state 74
+    id_cte                         shift and go to state 76
+    EMPTY                          shift and go to state 79
+    cte                            shift and go to state 84
 
 state 96
 
-    (46) factor -> lopb id_cte .
+    (30) op -> LT . exp
+    (34) exp -> . termino lopb
+    (38) termino -> . factor lopa
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (71) EMPTY -> .
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
 
-    TIMES           reduce using rule 46 (factor -> lopb id_cte .)
-    DIVIDE          reduce using rule 46 (factor -> lopb id_cte .)
-    PLUS            reduce using rule 46 (factor -> lopb id_cte .)
-    MINUS           reduce using rule 46 (factor -> lopb id_cte .)
-    GT              reduce using rule 46 (factor -> lopb id_cte .)
-    GTE             reduce using rule 46 (factor -> lopb id_cte .)
-    LT              reduce using rule 46 (factor -> lopb id_cte .)
-    LTE             reduce using rule 46 (factor -> lopb id_cte .)
-    NT              reduce using rule 46 (factor -> lopb id_cte .)
-    SEMICOMMA       reduce using rule 46 (factor -> lopb id_cte .)
-    COMMA           reduce using rule 46 (factor -> lopb id_cte .)
-    LPAR            reduce using rule 46 (factor -> lopb id_cte .)
-    ID              reduce using rule 46 (factor -> lopb id_cte .)
-    CTE_INT         reduce using rule 46 (factor -> lopb id_cte .)
-    CTE_FLOAT       reduce using rule 46 (factor -> lopb id_cte .)
-    RPAR            reduce using rule 46 (factor -> lopb id_cte .)
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for CTE_INT resolved as shift
+  ! shift/reduce conflict for CTE_FLOAT resolved as shift
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
 
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
+
+    exp                            shift and go to state 120
+    termino                        shift and go to state 72
+    lopb                           shift and go to state 73
+    factor                         shift and go to state 74
+    id_cte                         shift and go to state 76
+    EMPTY                          shift and go to state 79
+    cte                            shift and go to state 84
 
 state 97
 
-    (36) termino -> factor lopa .
+    (31) op -> LTE . exp
+    (34) exp -> . termino lopb
+    (38) termino -> . factor lopa
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (71) EMPTY -> .
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
 
-    PLUS            reduce using rule 36 (termino -> factor lopa .)
-    MINUS           reduce using rule 36 (termino -> factor lopa .)
-    GT              reduce using rule 36 (termino -> factor lopa .)
-    GTE             reduce using rule 36 (termino -> factor lopa .)
-    LT              reduce using rule 36 (termino -> factor lopa .)
-    LTE             reduce using rule 36 (termino -> factor lopa .)
-    NT              reduce using rule 36 (termino -> factor lopa .)
-    SEMICOMMA       reduce using rule 36 (termino -> factor lopa .)
-    COMMA           reduce using rule 36 (termino -> factor lopa .)
-    LPAR            reduce using rule 36 (termino -> factor lopa .)
-    ID              reduce using rule 36 (termino -> factor lopa .)
-    CTE_INT         reduce using rule 36 (termino -> factor lopa .)
-    CTE_FLOAT       reduce using rule 36 (termino -> factor lopa .)
-    RPAR            reduce using rule 36 (termino -> factor lopa .)
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for CTE_INT resolved as shift
+  ! shift/reduce conflict for CTE_FLOAT resolved as shift
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
 
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
+
+    exp                            shift and go to state 121
+    termino                        shift and go to state 72
+    lopb                           shift and go to state 73
+    factor                         shift and go to state 74
+    id_cte                         shift and go to state 76
+    EMPTY                          shift and go to state 79
+    cte                            shift and go to state 84
 
 state 98
 
-    (37) lopa -> TIMES . factor
-    (45) factor -> . LPAR expression RPAR
-    (46) factor -> . lopb id_cte
-    (47) factor -> . id_cte
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (69) EMPTY -> .
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
+    (32) op -> NT . exp
+    (34) exp -> . termino lopb
+    (38) termino -> . factor lopa
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (71) EMPTY -> .
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
 
   ! shift/reduce conflict for ID resolved as shift
   ! shift/reduce conflict for CTE_INT resolved as shift
   ! shift/reduce conflict for CTE_FLOAT resolved as shift
-    LPAR            shift and go to state 71
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    ID              shift and go to state 62
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
 
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_INT         [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_FLOAT       [ reduce using rule 69 (EMPTY -> .) ]
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
 
-    factor                         shift and go to state 117
-    lopb                           shift and go to state 69
-    id_cte                         shift and go to state 72
-    EMPTY                          shift and go to state 75
-    cte                            shift and go to state 80
+    exp                            shift and go to state 122
+    termino                        shift and go to state 72
+    lopb                           shift and go to state 73
+    factor                         shift and go to state 74
+    id_cte                         shift and go to state 76
+    EMPTY                          shift and go to state 79
+    cte                            shift and go to state 84
 
 state 99
 
-    (38) lopa -> DIVIDE . factor
-    (45) factor -> . LPAR expression RPAR
-    (46) factor -> . lopb id_cte
-    (47) factor -> . id_cte
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (69) EMPTY -> .
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
+    (33) op -> EMPTY .
 
-  ! shift/reduce conflict for ID resolved as shift
-  ! shift/reduce conflict for CTE_INT resolved as shift
-  ! shift/reduce conflict for CTE_FLOAT resolved as shift
-    LPAR            shift and go to state 71
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    ID              shift and go to state 62
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
+    SEMICOMMA       reduce using rule 33 (op -> EMPTY .)
+    COMMA           reduce using rule 33 (op -> EMPTY .)
+    LPAR            reduce using rule 33 (op -> EMPTY .)
+    PLUS            reduce using rule 33 (op -> EMPTY .)
+    MINUS           reduce using rule 33 (op -> EMPTY .)
+    ID              reduce using rule 33 (op -> EMPTY .)
+    CTE_INT         reduce using rule 33 (op -> EMPTY .)
+    CTE_FLOAT       reduce using rule 33 (op -> EMPTY .)
+    RPAR            reduce using rule 33 (op -> EMPTY .)
 
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_INT         [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_FLOAT       [ reduce using rule 69 (EMPTY -> .) ]
-
-    factor                         shift and go to state 118
-    lopb                           shift and go to state 69
-    id_cte                         shift and go to state 72
-    EMPTY                          shift and go to state 75
-    cte                            shift and go to state 80
 
 state 100
 
-    (39) lopa -> EMPTY .
+    (34) exp -> termino lopb .
 
-    PLUS            reduce using rule 39 (lopa -> EMPTY .)
-    MINUS           reduce using rule 39 (lopa -> EMPTY .)
-    GT              reduce using rule 39 (lopa -> EMPTY .)
-    GTE             reduce using rule 39 (lopa -> EMPTY .)
-    LT              reduce using rule 39 (lopa -> EMPTY .)
-    LTE             reduce using rule 39 (lopa -> EMPTY .)
-    NT              reduce using rule 39 (lopa -> EMPTY .)
-    SEMICOMMA       reduce using rule 39 (lopa -> EMPTY .)
-    COMMA           reduce using rule 39 (lopa -> EMPTY .)
-    LPAR            reduce using rule 39 (lopa -> EMPTY .)
-    ID              reduce using rule 39 (lopa -> EMPTY .)
-    CTE_INT         reduce using rule 39 (lopa -> EMPTY .)
-    CTE_FLOAT       reduce using rule 39 (lopa -> EMPTY .)
-    RPAR            reduce using rule 39 (lopa -> EMPTY .)
+    GT              reduce using rule 34 (exp -> termino lopb .)
+    GTE             reduce using rule 34 (exp -> termino lopb .)
+    LT              reduce using rule 34 (exp -> termino lopb .)
+    LTE             reduce using rule 34 (exp -> termino lopb .)
+    NT              reduce using rule 34 (exp -> termino lopb .)
+    SEMICOMMA       reduce using rule 34 (exp -> termino lopb .)
+    COMMA           reduce using rule 34 (exp -> termino lopb .)
+    LPAR            reduce using rule 34 (exp -> termino lopb .)
+    PLUS            reduce using rule 34 (exp -> termino lopb .)
+    MINUS           reduce using rule 34 (exp -> termino lopb .)
+    ID              reduce using rule 34 (exp -> termino lopb .)
+    CTE_INT         reduce using rule 34 (exp -> termino lopb .)
+    CTE_FLOAT       reduce using rule 34 (exp -> termino lopb .)
+    RPAR            reduce using rule 34 (exp -> termino lopb .)
 
 
 state 101
 
-    (45) factor -> LPAR expression . RPAR
+    (48) factor -> lopb id_cte .
 
-    RPAR            shift and go to state 119
+    TIMES           reduce using rule 48 (factor -> lopb id_cte .)
+    DIVIDE          reduce using rule 48 (factor -> lopb id_cte .)
+    PLUS            reduce using rule 48 (factor -> lopb id_cte .)
+    MINUS           reduce using rule 48 (factor -> lopb id_cte .)
+    GT              reduce using rule 48 (factor -> lopb id_cte .)
+    GTE             reduce using rule 48 (factor -> lopb id_cte .)
+    LT              reduce using rule 48 (factor -> lopb id_cte .)
+    LTE             reduce using rule 48 (factor -> lopb id_cte .)
+    NT              reduce using rule 48 (factor -> lopb id_cte .)
+    SEMICOMMA       reduce using rule 48 (factor -> lopb id_cte .)
+    COMMA           reduce using rule 48 (factor -> lopb id_cte .)
+    LPAR            reduce using rule 48 (factor -> lopb id_cte .)
+    ID              reduce using rule 48 (factor -> lopb id_cte .)
+    CTE_INT         reduce using rule 48 (factor -> lopb id_cte .)
+    CTE_FLOAT       reduce using rule 48 (factor -> lopb id_cte .)
+    RPAR            reduce using rule 48 (factor -> lopb id_cte .)
 
 
 state 102
 
-    (33) lopb -> PLUS termino .
+    (38) termino -> factor lopa .
 
-    ID              reduce using rule 33 (lopb -> PLUS termino .)
-    CTE_INT         reduce using rule 33 (lopb -> PLUS termino .)
-    CTE_FLOAT       reduce using rule 33 (lopb -> PLUS termino .)
-    GT              reduce using rule 33 (lopb -> PLUS termino .)
-    GTE             reduce using rule 33 (lopb -> PLUS termino .)
-    LT              reduce using rule 33 (lopb -> PLUS termino .)
-    LTE             reduce using rule 33 (lopb -> PLUS termino .)
-    NT              reduce using rule 33 (lopb -> PLUS termino .)
-    SEMICOMMA       reduce using rule 33 (lopb -> PLUS termino .)
-    COMMA           reduce using rule 33 (lopb -> PLUS termino .)
-    LPAR            reduce using rule 33 (lopb -> PLUS termino .)
-    PLUS            reduce using rule 33 (lopb -> PLUS termino .)
-    MINUS           reduce using rule 33 (lopb -> PLUS termino .)
-    RPAR            reduce using rule 33 (lopb -> PLUS termino .)
+    PLUS            reduce using rule 38 (termino -> factor lopa .)
+    MINUS           reduce using rule 38 (termino -> factor lopa .)
+    GT              reduce using rule 38 (termino -> factor lopa .)
+    GTE             reduce using rule 38 (termino -> factor lopa .)
+    LT              reduce using rule 38 (termino -> factor lopa .)
+    LTE             reduce using rule 38 (termino -> factor lopa .)
+    NT              reduce using rule 38 (termino -> factor lopa .)
+    SEMICOMMA       reduce using rule 38 (termino -> factor lopa .)
+    COMMA           reduce using rule 38 (termino -> factor lopa .)
+    LPAR            reduce using rule 38 (termino -> factor lopa .)
+    ID              reduce using rule 38 (termino -> factor lopa .)
+    CTE_INT         reduce using rule 38 (termino -> factor lopa .)
+    CTE_FLOAT       reduce using rule 38 (termino -> factor lopa .)
+    RPAR            reduce using rule 38 (termino -> factor lopa .)
 
 
 state 103
 
-    (34) lopb -> MINUS termino .
+    (39) lopa -> TIMES . factor
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (71) EMPTY -> .
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
 
-    ID              reduce using rule 34 (lopb -> MINUS termino .)
-    CTE_INT         reduce using rule 34 (lopb -> MINUS termino .)
-    CTE_FLOAT       reduce using rule 34 (lopb -> MINUS termino .)
-    GT              reduce using rule 34 (lopb -> MINUS termino .)
-    GTE             reduce using rule 34 (lopb -> MINUS termino .)
-    LT              reduce using rule 34 (lopb -> MINUS termino .)
-    LTE             reduce using rule 34 (lopb -> MINUS termino .)
-    NT              reduce using rule 34 (lopb -> MINUS termino .)
-    SEMICOMMA       reduce using rule 34 (lopb -> MINUS termino .)
-    COMMA           reduce using rule 34 (lopb -> MINUS termino .)
-    LPAR            reduce using rule 34 (lopb -> MINUS termino .)
-    PLUS            reduce using rule 34 (lopb -> MINUS termino .)
-    MINUS           reduce using rule 34 (lopb -> MINUS termino .)
-    RPAR            reduce using rule 34 (lopb -> MINUS termino .)
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for CTE_INT resolved as shift
+  ! shift/reduce conflict for CTE_FLOAT resolved as shift
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
 
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
+
+    factor                         shift and go to state 123
+    lopb                           shift and go to state 73
+    id_cte                         shift and go to state 76
+    EMPTY                          shift and go to state 79
+    cte                            shift and go to state 84
 
 state 104
 
-    (41) fcall -> ID LPAR list_exp RPAR . SEMICOMMA
+    (40) lopa -> DIVIDE . factor
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (71) EMPTY -> .
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
 
-    SEMICOMMA       shift and go to state 120
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for CTE_INT resolved as shift
+  ! shift/reduce conflict for CTE_FLOAT resolved as shift
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
 
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
+
+    factor                         shift and go to state 124
+    lopb                           shift and go to state 73
+    id_cte                         shift and go to state 76
+    EMPTY                          shift and go to state 79
+    cte                            shift and go to state 84
 
 state 105
 
-    (42) list_exp -> expression list_exp .
+    (41) lopa -> EMPTY .
 
-    RPAR            reduce using rule 42 (list_exp -> expression list_exp .)
+    PLUS            reduce using rule 41 (lopa -> EMPTY .)
+    MINUS           reduce using rule 41 (lopa -> EMPTY .)
+    GT              reduce using rule 41 (lopa -> EMPTY .)
+    GTE             reduce using rule 41 (lopa -> EMPTY .)
+    LT              reduce using rule 41 (lopa -> EMPTY .)
+    LTE             reduce using rule 41 (lopa -> EMPTY .)
+    NT              reduce using rule 41 (lopa -> EMPTY .)
+    SEMICOMMA       reduce using rule 41 (lopa -> EMPTY .)
+    COMMA           reduce using rule 41 (lopa -> EMPTY .)
+    LPAR            reduce using rule 41 (lopa -> EMPTY .)
+    ID              reduce using rule 41 (lopa -> EMPTY .)
+    CTE_INT         reduce using rule 41 (lopa -> EMPTY .)
+    CTE_FLOAT       reduce using rule 41 (lopa -> EMPTY .)
+    RPAR            reduce using rule 41 (lopa -> EMPTY .)
 
 
 state 106
 
-    (44) list_exp -> COMMA list_exp .
+    (47) factor -> LPAR expression . RPAR
 
-    RPAR            reduce using rule 44 (list_exp -> COMMA list_exp .)
+    RPAR            shift and go to state 125
 
 
 state 107
 
-    (50) conditions -> IF LPAR expression RPAR . body haselse SEMICOMMA
-    (6) body -> . LBRACE statment RBRACE
+    (35) lopb -> PLUS termino .
 
-    LBRACE          shift and go to state 40
+    ID              reduce using rule 35 (lopb -> PLUS termino .)
+    CTE_INT         reduce using rule 35 (lopb -> PLUS termino .)
+    CTE_FLOAT       reduce using rule 35 (lopb -> PLUS termino .)
+    GT              reduce using rule 35 (lopb -> PLUS termino .)
+    GTE             reduce using rule 35 (lopb -> PLUS termino .)
+    LT              reduce using rule 35 (lopb -> PLUS termino .)
+    LTE             reduce using rule 35 (lopb -> PLUS termino .)
+    NT              reduce using rule 35 (lopb -> PLUS termino .)
+    SEMICOMMA       reduce using rule 35 (lopb -> PLUS termino .)
+    COMMA           reduce using rule 35 (lopb -> PLUS termino .)
+    LPAR            reduce using rule 35 (lopb -> PLUS termino .)
+    PLUS            reduce using rule 35 (lopb -> PLUS termino .)
+    MINUS           reduce using rule 35 (lopb -> PLUS termino .)
+    RPAR            reduce using rule 35 (lopb -> PLUS termino .)
 
-    body                           shift and go to state 121
 
 state 108
 
-    (53) imprimir -> PRINT LPAR lst_printing_options RPAR . SEMICOMMA
+    (36) lopb -> MINUS termino .
 
-    SEMICOMMA       shift and go to state 122
+    ID              reduce using rule 36 (lopb -> MINUS termino .)
+    CTE_INT         reduce using rule 36 (lopb -> MINUS termino .)
+    CTE_FLOAT       reduce using rule 36 (lopb -> MINUS termino .)
+    GT              reduce using rule 36 (lopb -> MINUS termino .)
+    GTE             reduce using rule 36 (lopb -> MINUS termino .)
+    LT              reduce using rule 36 (lopb -> MINUS termino .)
+    LTE             reduce using rule 36 (lopb -> MINUS termino .)
+    NT              reduce using rule 36 (lopb -> MINUS termino .)
+    SEMICOMMA       reduce using rule 36 (lopb -> MINUS termino .)
+    COMMA           reduce using rule 36 (lopb -> MINUS termino .)
+    LPAR            reduce using rule 36 (lopb -> MINUS termino .)
+    PLUS            reduce using rule 36 (lopb -> MINUS termino .)
+    MINUS           reduce using rule 36 (lopb -> MINUS termino .)
+    RPAR            reduce using rule 36 (lopb -> MINUS termino .)
 
 
 state 109
 
-    (54) lst_printing_options -> CTE_STRING COMMA . lst_printing_options
-    (54) lst_printing_options -> . CTE_STRING COMMA lst_printing_options
-    (55) lst_printing_options -> . expression
-    (56) lst_printing_options -> . expression COMMA lst_printing_options
-    (57) lst_printing_options -> . vars
-    (58) lst_printing_options -> . vars COMMA lst_printing_options
-    (59) lst_printing_options -> . CTE_STRING
-    (25) expression -> . exp op
-    (60) vars -> . VAR lst_var
-    (32) exp -> . termino lopb
-    (36) termino -> . factor lopa
-    (45) factor -> . LPAR expression RPAR
-    (46) factor -> . lopb id_cte
-    (47) factor -> . id_cte
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (69) EMPTY -> .
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
+    (43) fcall -> ID LPAR list_exp RPAR . SEMICOMMA
 
-  ! shift/reduce conflict for ID resolved as shift
-  ! shift/reduce conflict for CTE_INT resolved as shift
-  ! shift/reduce conflict for CTE_FLOAT resolved as shift
-    CTE_STRING      shift and go to state 83
-    VAR             shift and go to state 8
-    LPAR            shift and go to state 71
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    ID              shift and go to state 62
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
+    SEMICOMMA       shift and go to state 126
 
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_INT         [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_FLOAT       [ reduce using rule 69 (EMPTY -> .) ]
-
-    lst_printing_options           shift and go to state 123
-    expression                     shift and go to state 84
-    vars                           shift and go to state 85
-    exp                            shift and go to state 65
-    termino                        shift and go to state 68
-    lopb                           shift and go to state 69
-    factor                         shift and go to state 70
-    id_cte                         shift and go to state 72
-    EMPTY                          shift and go to state 75
-    cte                            shift and go to state 80
 
 state 110
 
-    (56) lst_printing_options -> expression COMMA . lst_printing_options
-    (54) lst_printing_options -> . CTE_STRING COMMA lst_printing_options
-    (55) lst_printing_options -> . expression
-    (56) lst_printing_options -> . expression COMMA lst_printing_options
-    (57) lst_printing_options -> . vars
-    (58) lst_printing_options -> . vars COMMA lst_printing_options
-    (59) lst_printing_options -> . CTE_STRING
-    (25) expression -> . exp op
-    (60) vars -> . VAR lst_var
-    (32) exp -> . termino lopb
-    (36) termino -> . factor lopa
-    (45) factor -> . LPAR expression RPAR
-    (46) factor -> . lopb id_cte
-    (47) factor -> . id_cte
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (69) EMPTY -> .
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
+    (44) list_exp -> expression list_exp .
 
-  ! shift/reduce conflict for ID resolved as shift
-  ! shift/reduce conflict for CTE_INT resolved as shift
-  ! shift/reduce conflict for CTE_FLOAT resolved as shift
-    CTE_STRING      shift and go to state 83
-    VAR             shift and go to state 8
-    LPAR            shift and go to state 71
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    ID              shift and go to state 62
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
+    RPAR            reduce using rule 44 (list_exp -> expression list_exp .)
 
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_INT         [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_FLOAT       [ reduce using rule 69 (EMPTY -> .) ]
-
-    expression                     shift and go to state 84
-    lst_printing_options           shift and go to state 124
-    vars                           shift and go to state 85
-    exp                            shift and go to state 65
-    termino                        shift and go to state 68
-    lopb                           shift and go to state 69
-    factor                         shift and go to state 70
-    id_cte                         shift and go to state 72
-    EMPTY                          shift and go to state 75
-    cte                            shift and go to state 80
 
 state 111
 
-    (58) lst_printing_options -> vars COMMA . lst_printing_options
-    (54) lst_printing_options -> . CTE_STRING COMMA lst_printing_options
-    (55) lst_printing_options -> . expression
-    (56) lst_printing_options -> . expression COMMA lst_printing_options
-    (57) lst_printing_options -> . vars
-    (58) lst_printing_options -> . vars COMMA lst_printing_options
-    (59) lst_printing_options -> . CTE_STRING
-    (25) expression -> . exp op
-    (60) vars -> . VAR lst_var
-    (32) exp -> . termino lopb
-    (36) termino -> . factor lopa
-    (45) factor -> . LPAR expression RPAR
-    (46) factor -> . lopb id_cte
-    (47) factor -> . id_cte
-    (33) lopb -> . PLUS termino
-    (34) lopb -> . MINUS termino
-    (35) lopb -> . EMPTY
-    (48) id_cte -> . ID
-    (49) id_cte -> . cte
-    (69) EMPTY -> .
-    (19) cte -> . CTE_INT
-    (20) cte -> . CTE_FLOAT
+    (46) list_exp -> COMMA list_exp .
 
-  ! shift/reduce conflict for ID resolved as shift
-  ! shift/reduce conflict for CTE_INT resolved as shift
-  ! shift/reduce conflict for CTE_FLOAT resolved as shift
-    CTE_STRING      shift and go to state 83
-    VAR             shift and go to state 8
-    LPAR            shift and go to state 71
-    PLUS            shift and go to state 73
-    MINUS           shift and go to state 74
-    ID              shift and go to state 62
-    CTE_INT         shift and go to state 66
-    CTE_FLOAT       shift and go to state 67
+    RPAR            reduce using rule 46 (list_exp -> COMMA list_exp .)
 
-  ! ID              [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_INT         [ reduce using rule 69 (EMPTY -> .) ]
-  ! CTE_FLOAT       [ reduce using rule 69 (EMPTY -> .) ]
-
-    vars                           shift and go to state 85
-    lst_printing_options           shift and go to state 125
-    expression                     shift and go to state 84
-    exp                            shift and go to state 65
-    termino                        shift and go to state 68
-    lopb                           shift and go to state 69
-    factor                         shift and go to state 70
-    id_cte                         shift and go to state 72
-    EMPTY                          shift and go to state 75
-    cte                            shift and go to state 80
 
 state 112
 
-    (26) op -> GT exp .
-
-    SEMICOMMA       reduce using rule 26 (op -> GT exp .)
-    COMMA           reduce using rule 26 (op -> GT exp .)
-    LPAR            reduce using rule 26 (op -> GT exp .)
-    PLUS            reduce using rule 26 (op -> GT exp .)
-    MINUS           reduce using rule 26 (op -> GT exp .)
-    ID              reduce using rule 26 (op -> GT exp .)
-    CTE_INT         reduce using rule 26 (op -> GT exp .)
-    CTE_FLOAT       reduce using rule 26 (op -> GT exp .)
-    RPAR            reduce using rule 26 (op -> GT exp .)
-
-
-state 113
-
-    (27) op -> GTE exp .
-
-    SEMICOMMA       reduce using rule 27 (op -> GTE exp .)
-    COMMA           reduce using rule 27 (op -> GTE exp .)
-    LPAR            reduce using rule 27 (op -> GTE exp .)
-    PLUS            reduce using rule 27 (op -> GTE exp .)
-    MINUS           reduce using rule 27 (op -> GTE exp .)
-    ID              reduce using rule 27 (op -> GTE exp .)
-    CTE_INT         reduce using rule 27 (op -> GTE exp .)
-    CTE_FLOAT       reduce using rule 27 (op -> GTE exp .)
-    RPAR            reduce using rule 27 (op -> GTE exp .)
-
-
-state 114
-
-    (28) op -> LT exp .
-
-    SEMICOMMA       reduce using rule 28 (op -> LT exp .)
-    COMMA           reduce using rule 28 (op -> LT exp .)
-    LPAR            reduce using rule 28 (op -> LT exp .)
-    PLUS            reduce using rule 28 (op -> LT exp .)
-    MINUS           reduce using rule 28 (op -> LT exp .)
-    ID              reduce using rule 28 (op -> LT exp .)
-    CTE_INT         reduce using rule 28 (op -> LT exp .)
-    CTE_FLOAT       reduce using rule 28 (op -> LT exp .)
-    RPAR            reduce using rule 28 (op -> LT exp .)
-
-
-state 115
-
-    (29) op -> LTE exp .
-
-    SEMICOMMA       reduce using rule 29 (op -> LTE exp .)
-    COMMA           reduce using rule 29 (op -> LTE exp .)
-    LPAR            reduce using rule 29 (op -> LTE exp .)
-    PLUS            reduce using rule 29 (op -> LTE exp .)
-    MINUS           reduce using rule 29 (op -> LTE exp .)
-    ID              reduce using rule 29 (op -> LTE exp .)
-    CTE_INT         reduce using rule 29 (op -> LTE exp .)
-    CTE_FLOAT       reduce using rule 29 (op -> LTE exp .)
-    RPAR            reduce using rule 29 (op -> LTE exp .)
-
-
-state 116
-
-    (30) op -> NT exp .
-
-    SEMICOMMA       reduce using rule 30 (op -> NT exp .)
-    COMMA           reduce using rule 30 (op -> NT exp .)
-    LPAR            reduce using rule 30 (op -> NT exp .)
-    PLUS            reduce using rule 30 (op -> NT exp .)
-    MINUS           reduce using rule 30 (op -> NT exp .)
-    ID              reduce using rule 30 (op -> NT exp .)
-    CTE_INT         reduce using rule 30 (op -> NT exp .)
-    CTE_FLOAT       reduce using rule 30 (op -> NT exp .)
-    RPAR            reduce using rule 30 (op -> NT exp .)
-
-
-state 117
-
-    (37) lopa -> TIMES factor .
-
-    PLUS            reduce using rule 37 (lopa -> TIMES factor .)
-    MINUS           reduce using rule 37 (lopa -> TIMES factor .)
-    GT              reduce using rule 37 (lopa -> TIMES factor .)
-    GTE             reduce using rule 37 (lopa -> TIMES factor .)
-    LT              reduce using rule 37 (lopa -> TIMES factor .)
-    LTE             reduce using rule 37 (lopa -> TIMES factor .)
-    NT              reduce using rule 37 (lopa -> TIMES factor .)
-    SEMICOMMA       reduce using rule 37 (lopa -> TIMES factor .)
-    COMMA           reduce using rule 37 (lopa -> TIMES factor .)
-    LPAR            reduce using rule 37 (lopa -> TIMES factor .)
-    ID              reduce using rule 37 (lopa -> TIMES factor .)
-    CTE_INT         reduce using rule 37 (lopa -> TIMES factor .)
-    CTE_FLOAT       reduce using rule 37 (lopa -> TIMES factor .)
-    RPAR            reduce using rule 37 (lopa -> TIMES factor .)
-
-
-state 118
-
-    (38) lopa -> DIVIDE factor .
-
-    PLUS            reduce using rule 38 (lopa -> DIVIDE factor .)
-    MINUS           reduce using rule 38 (lopa -> DIVIDE factor .)
-    GT              reduce using rule 38 (lopa -> DIVIDE factor .)
-    GTE             reduce using rule 38 (lopa -> DIVIDE factor .)
-    LT              reduce using rule 38 (lopa -> DIVIDE factor .)
-    LTE             reduce using rule 38 (lopa -> DIVIDE factor .)
-    NT              reduce using rule 38 (lopa -> DIVIDE factor .)
-    SEMICOMMA       reduce using rule 38 (lopa -> DIVIDE factor .)
-    COMMA           reduce using rule 38 (lopa -> DIVIDE factor .)
-    LPAR            reduce using rule 38 (lopa -> DIVIDE factor .)
-    ID              reduce using rule 38 (lopa -> DIVIDE factor .)
-    CTE_INT         reduce using rule 38 (lopa -> DIVIDE factor .)
-    CTE_FLOAT       reduce using rule 38 (lopa -> DIVIDE factor .)
-    RPAR            reduce using rule 38 (lopa -> DIVIDE factor .)
-
-
-state 119
-
-    (45) factor -> LPAR expression RPAR .
-
-    TIMES           reduce using rule 45 (factor -> LPAR expression RPAR .)
-    DIVIDE          reduce using rule 45 (factor -> LPAR expression RPAR .)
-    PLUS            reduce using rule 45 (factor -> LPAR expression RPAR .)
-    MINUS           reduce using rule 45 (factor -> LPAR expression RPAR .)
-    GT              reduce using rule 45 (factor -> LPAR expression RPAR .)
-    GTE             reduce using rule 45 (factor -> LPAR expression RPAR .)
-    LT              reduce using rule 45 (factor -> LPAR expression RPAR .)
-    LTE             reduce using rule 45 (factor -> LPAR expression RPAR .)
-    NT              reduce using rule 45 (factor -> LPAR expression RPAR .)
-    SEMICOMMA       reduce using rule 45 (factor -> LPAR expression RPAR .)
-    COMMA           reduce using rule 45 (factor -> LPAR expression RPAR .)
-    LPAR            reduce using rule 45 (factor -> LPAR expression RPAR .)
-    ID              reduce using rule 45 (factor -> LPAR expression RPAR .)
-    CTE_INT         reduce using rule 45 (factor -> LPAR expression RPAR .)
-    CTE_FLOAT       reduce using rule 45 (factor -> LPAR expression RPAR .)
-    RPAR            reduce using rule 45 (factor -> LPAR expression RPAR .)
-
-
-state 120
-
-    (41) fcall -> ID LPAR list_exp RPAR SEMICOMMA .
-
-    ID              reduce using rule 41 (fcall -> ID LPAR list_exp RPAR SEMICOMMA .)
-    IF              reduce using rule 41 (fcall -> ID LPAR list_exp RPAR SEMICOMMA .)
-    PRINT           reduce using rule 41 (fcall -> ID LPAR list_exp RPAR SEMICOMMA .)
-    VAR             reduce using rule 41 (fcall -> ID LPAR list_exp RPAR SEMICOMMA .)
-    RBRACE          reduce using rule 41 (fcall -> ID LPAR list_exp RPAR SEMICOMMA .)
-
-
-state 121
-
-    (50) conditions -> IF LPAR expression RPAR body . haselse SEMICOMMA
-    (51) haselse -> . ELSE body
-    (52) haselse -> . EMPTY
-    (69) EMPTY -> .
-
-    ELSE            shift and go to state 127
-    SEMICOMMA       reduce using rule 69 (EMPTY -> .)
-
-    haselse                        shift and go to state 126
-    EMPTY                          shift and go to state 128
-
-state 122
-
-    (53) imprimir -> PRINT LPAR lst_printing_options RPAR SEMICOMMA .
-
-    ID              reduce using rule 53 (imprimir -> PRINT LPAR lst_printing_options RPAR SEMICOMMA .)
-    IF              reduce using rule 53 (imprimir -> PRINT LPAR lst_printing_options RPAR SEMICOMMA .)
-    PRINT           reduce using rule 53 (imprimir -> PRINT LPAR lst_printing_options RPAR SEMICOMMA .)
-    VAR             reduce using rule 53 (imprimir -> PRINT LPAR lst_printing_options RPAR SEMICOMMA .)
-    RBRACE          reduce using rule 53 (imprimir -> PRINT LPAR lst_printing_options RPAR SEMICOMMA .)
-
-
-state 123
-
-    (54) lst_printing_options -> CTE_STRING COMMA lst_printing_options .
-
-    RPAR            reduce using rule 54 (lst_printing_options -> CTE_STRING COMMA lst_printing_options .)
-
-
-state 124
-
-    (56) lst_printing_options -> expression COMMA lst_printing_options .
-
-    RPAR            reduce using rule 56 (lst_printing_options -> expression COMMA lst_printing_options .)
-
-
-state 125
-
-    (58) lst_printing_options -> vars COMMA lst_printing_options .
-
-    RPAR            reduce using rule 58 (lst_printing_options -> vars COMMA lst_printing_options .)
-
-
-state 126
-
-    (50) conditions -> IF LPAR expression RPAR body haselse . SEMICOMMA
-
-    SEMICOMMA       shift and go to state 129
-
-
-state 127
-
-    (51) haselse -> ELSE . body
+    (52) conditions -> IF LPAR expression RPAR . body haselse SEMICOMMA
     (6) body -> . LBRACE statment RBRACE
 
     LBRACE          shift and go to state 40
 
-    body                           shift and go to state 130
+    body                           shift and go to state 127
+
+state 113
+
+    (55) imprimir -> PRINT LPAR lst_printing_options RPAR . SEMICOMMA
+
+    SEMICOMMA       shift and go to state 128
+
+
+state 114
+
+    (56) lst_printing_options -> CTE_STRING COMMA . lst_printing_options
+    (56) lst_printing_options -> . CTE_STRING COMMA lst_printing_options
+    (57) lst_printing_options -> . expression
+    (58) lst_printing_options -> . expression COMMA lst_printing_options
+    (59) lst_printing_options -> . vars
+    (60) lst_printing_options -> . vars COMMA lst_printing_options
+    (61) lst_printing_options -> . CTE_STRING
+    (27) expression -> . exp op
+    (62) vars -> . VAR lst_var
+    (34) exp -> . termino lopb
+    (38) termino -> . factor lopa
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (71) EMPTY -> .
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
+
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for CTE_INT resolved as shift
+  ! shift/reduce conflict for CTE_FLOAT resolved as shift
+    CTE_STRING      shift and go to state 87
+    VAR             shift and go to state 8
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
+
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
+
+    lst_printing_options           shift and go to state 129
+    expression                     shift and go to state 88
+    vars                           shift and go to state 89
+    exp                            shift and go to state 69
+    termino                        shift and go to state 72
+    lopb                           shift and go to state 73
+    factor                         shift and go to state 74
+    id_cte                         shift and go to state 76
+    EMPTY                          shift and go to state 79
+    cte                            shift and go to state 84
+
+state 115
+
+    (58) lst_printing_options -> expression COMMA . lst_printing_options
+    (56) lst_printing_options -> . CTE_STRING COMMA lst_printing_options
+    (57) lst_printing_options -> . expression
+    (58) lst_printing_options -> . expression COMMA lst_printing_options
+    (59) lst_printing_options -> . vars
+    (60) lst_printing_options -> . vars COMMA lst_printing_options
+    (61) lst_printing_options -> . CTE_STRING
+    (27) expression -> . exp op
+    (62) vars -> . VAR lst_var
+    (34) exp -> . termino lopb
+    (38) termino -> . factor lopa
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (71) EMPTY -> .
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
+
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for CTE_INT resolved as shift
+  ! shift/reduce conflict for CTE_FLOAT resolved as shift
+    CTE_STRING      shift and go to state 87
+    VAR             shift and go to state 8
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
+
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
+
+    expression                     shift and go to state 88
+    lst_printing_options           shift and go to state 130
+    vars                           shift and go to state 89
+    exp                            shift and go to state 69
+    termino                        shift and go to state 72
+    lopb                           shift and go to state 73
+    factor                         shift and go to state 74
+    id_cte                         shift and go to state 76
+    EMPTY                          shift and go to state 79
+    cte                            shift and go to state 84
+
+state 116
+
+    (60) lst_printing_options -> vars COMMA . lst_printing_options
+    (56) lst_printing_options -> . CTE_STRING COMMA lst_printing_options
+    (57) lst_printing_options -> . expression
+    (58) lst_printing_options -> . expression COMMA lst_printing_options
+    (59) lst_printing_options -> . vars
+    (60) lst_printing_options -> . vars COMMA lst_printing_options
+    (61) lst_printing_options -> . CTE_STRING
+    (27) expression -> . exp op
+    (62) vars -> . VAR lst_var
+    (34) exp -> . termino lopb
+    (38) termino -> . factor lopa
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (71) EMPTY -> .
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
+
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for CTE_INT resolved as shift
+  ! shift/reduce conflict for CTE_FLOAT resolved as shift
+    CTE_STRING      shift and go to state 87
+    VAR             shift and go to state 8
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
+
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
+
+    vars                           shift and go to state 89
+    lst_printing_options           shift and go to state 131
+    expression                     shift and go to state 88
+    exp                            shift and go to state 69
+    termino                        shift and go to state 72
+    lopb                           shift and go to state 73
+    factor                         shift and go to state 74
+    id_cte                         shift and go to state 76
+    EMPTY                          shift and go to state 79
+    cte                            shift and go to state 84
+
+state 117
+
+    (42) cycle -> WHILE body DO LPAR . expression RPAR SEMICOMMA
+    (27) expression -> . exp op
+    (34) exp -> . termino lopb
+    (38) termino -> . factor lopa
+    (47) factor -> . LPAR expression RPAR
+    (48) factor -> . lopb id_cte
+    (49) factor -> . id_cte
+    (35) lopb -> . PLUS termino
+    (36) lopb -> . MINUS termino
+    (37) lopb -> . EMPTY
+    (50) id_cte -> . ID
+    (51) id_cte -> . cte
+    (71) EMPTY -> .
+    (21) cte -> . CTE_INT
+    (22) cte -> . CTE_FLOAT
+
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for CTE_INT resolved as shift
+  ! shift/reduce conflict for CTE_FLOAT resolved as shift
+    LPAR            shift and go to state 75
+    PLUS            shift and go to state 77
+    MINUS           shift and go to state 78
+    ID              shift and go to state 66
+    CTE_INT         shift and go to state 70
+    CTE_FLOAT       shift and go to state 71
+
+  ! ID              [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_INT         [ reduce using rule 71 (EMPTY -> .) ]
+  ! CTE_FLOAT       [ reduce using rule 71 (EMPTY -> .) ]
+
+    expression                     shift and go to state 132
+    exp                            shift and go to state 69
+    termino                        shift and go to state 72
+    lopb                           shift and go to state 73
+    factor                         shift and go to state 74
+    id_cte                         shift and go to state 76
+    EMPTY                          shift and go to state 79
+    cte                            shift and go to state 84
+
+state 118
+
+    (28) op -> GT exp .
+
+    SEMICOMMA       reduce using rule 28 (op -> GT exp .)
+    COMMA           reduce using rule 28 (op -> GT exp .)
+    LPAR            reduce using rule 28 (op -> GT exp .)
+    PLUS            reduce using rule 28 (op -> GT exp .)
+    MINUS           reduce using rule 28 (op -> GT exp .)
+    ID              reduce using rule 28 (op -> GT exp .)
+    CTE_INT         reduce using rule 28 (op -> GT exp .)
+    CTE_FLOAT       reduce using rule 28 (op -> GT exp .)
+    RPAR            reduce using rule 28 (op -> GT exp .)
+
+
+state 119
+
+    (29) op -> GTE exp .
+
+    SEMICOMMA       reduce using rule 29 (op -> GTE exp .)
+    COMMA           reduce using rule 29 (op -> GTE exp .)
+    LPAR            reduce using rule 29 (op -> GTE exp .)
+    PLUS            reduce using rule 29 (op -> GTE exp .)
+    MINUS           reduce using rule 29 (op -> GTE exp .)
+    ID              reduce using rule 29 (op -> GTE exp .)
+    CTE_INT         reduce using rule 29 (op -> GTE exp .)
+    CTE_FLOAT       reduce using rule 29 (op -> GTE exp .)
+    RPAR            reduce using rule 29 (op -> GTE exp .)
+
+
+state 120
+
+    (30) op -> LT exp .
+
+    SEMICOMMA       reduce using rule 30 (op -> LT exp .)
+    COMMA           reduce using rule 30 (op -> LT exp .)
+    LPAR            reduce using rule 30 (op -> LT exp .)
+    PLUS            reduce using rule 30 (op -> LT exp .)
+    MINUS           reduce using rule 30 (op -> LT exp .)
+    ID              reduce using rule 30 (op -> LT exp .)
+    CTE_INT         reduce using rule 30 (op -> LT exp .)
+    CTE_FLOAT       reduce using rule 30 (op -> LT exp .)
+    RPAR            reduce using rule 30 (op -> LT exp .)
+
+
+state 121
+
+    (31) op -> LTE exp .
+
+    SEMICOMMA       reduce using rule 31 (op -> LTE exp .)
+    COMMA           reduce using rule 31 (op -> LTE exp .)
+    LPAR            reduce using rule 31 (op -> LTE exp .)
+    PLUS            reduce using rule 31 (op -> LTE exp .)
+    MINUS           reduce using rule 31 (op -> LTE exp .)
+    ID              reduce using rule 31 (op -> LTE exp .)
+    CTE_INT         reduce using rule 31 (op -> LTE exp .)
+    CTE_FLOAT       reduce using rule 31 (op -> LTE exp .)
+    RPAR            reduce using rule 31 (op -> LTE exp .)
+
+
+state 122
+
+    (32) op -> NT exp .
+
+    SEMICOMMA       reduce using rule 32 (op -> NT exp .)
+    COMMA           reduce using rule 32 (op -> NT exp .)
+    LPAR            reduce using rule 32 (op -> NT exp .)
+    PLUS            reduce using rule 32 (op -> NT exp .)
+    MINUS           reduce using rule 32 (op -> NT exp .)
+    ID              reduce using rule 32 (op -> NT exp .)
+    CTE_INT         reduce using rule 32 (op -> NT exp .)
+    CTE_FLOAT       reduce using rule 32 (op -> NT exp .)
+    RPAR            reduce using rule 32 (op -> NT exp .)
+
+
+state 123
+
+    (39) lopa -> TIMES factor .
+
+    PLUS            reduce using rule 39 (lopa -> TIMES factor .)
+    MINUS           reduce using rule 39 (lopa -> TIMES factor .)
+    GT              reduce using rule 39 (lopa -> TIMES factor .)
+    GTE             reduce using rule 39 (lopa -> TIMES factor .)
+    LT              reduce using rule 39 (lopa -> TIMES factor .)
+    LTE             reduce using rule 39 (lopa -> TIMES factor .)
+    NT              reduce using rule 39 (lopa -> TIMES factor .)
+    SEMICOMMA       reduce using rule 39 (lopa -> TIMES factor .)
+    COMMA           reduce using rule 39 (lopa -> TIMES factor .)
+    LPAR            reduce using rule 39 (lopa -> TIMES factor .)
+    ID              reduce using rule 39 (lopa -> TIMES factor .)
+    CTE_INT         reduce using rule 39 (lopa -> TIMES factor .)
+    CTE_FLOAT       reduce using rule 39 (lopa -> TIMES factor .)
+    RPAR            reduce using rule 39 (lopa -> TIMES factor .)
+
+
+state 124
+
+    (40) lopa -> DIVIDE factor .
+
+    PLUS            reduce using rule 40 (lopa -> DIVIDE factor .)
+    MINUS           reduce using rule 40 (lopa -> DIVIDE factor .)
+    GT              reduce using rule 40 (lopa -> DIVIDE factor .)
+    GTE             reduce using rule 40 (lopa -> DIVIDE factor .)
+    LT              reduce using rule 40 (lopa -> DIVIDE factor .)
+    LTE             reduce using rule 40 (lopa -> DIVIDE factor .)
+    NT              reduce using rule 40 (lopa -> DIVIDE factor .)
+    SEMICOMMA       reduce using rule 40 (lopa -> DIVIDE factor .)
+    COMMA           reduce using rule 40 (lopa -> DIVIDE factor .)
+    LPAR            reduce using rule 40 (lopa -> DIVIDE factor .)
+    ID              reduce using rule 40 (lopa -> DIVIDE factor .)
+    CTE_INT         reduce using rule 40 (lopa -> DIVIDE factor .)
+    CTE_FLOAT       reduce using rule 40 (lopa -> DIVIDE factor .)
+    RPAR            reduce using rule 40 (lopa -> DIVIDE factor .)
+
+
+state 125
+
+    (47) factor -> LPAR expression RPAR .
+
+    TIMES           reduce using rule 47 (factor -> LPAR expression RPAR .)
+    DIVIDE          reduce using rule 47 (factor -> LPAR expression RPAR .)
+    PLUS            reduce using rule 47 (factor -> LPAR expression RPAR .)
+    MINUS           reduce using rule 47 (factor -> LPAR expression RPAR .)
+    GT              reduce using rule 47 (factor -> LPAR expression RPAR .)
+    GTE             reduce using rule 47 (factor -> LPAR expression RPAR .)
+    LT              reduce using rule 47 (factor -> LPAR expression RPAR .)
+    LTE             reduce using rule 47 (factor -> LPAR expression RPAR .)
+    NT              reduce using rule 47 (factor -> LPAR expression RPAR .)
+    SEMICOMMA       reduce using rule 47 (factor -> LPAR expression RPAR .)
+    COMMA           reduce using rule 47 (factor -> LPAR expression RPAR .)
+    LPAR            reduce using rule 47 (factor -> LPAR expression RPAR .)
+    ID              reduce using rule 47 (factor -> LPAR expression RPAR .)
+    CTE_INT         reduce using rule 47 (factor -> LPAR expression RPAR .)
+    CTE_FLOAT       reduce using rule 47 (factor -> LPAR expression RPAR .)
+    RPAR            reduce using rule 47 (factor -> LPAR expression RPAR .)
+
+
+state 126
+
+    (43) fcall -> ID LPAR list_exp RPAR SEMICOMMA .
+
+    ID              reduce using rule 43 (fcall -> ID LPAR list_exp RPAR SEMICOMMA .)
+    IF              reduce using rule 43 (fcall -> ID LPAR list_exp RPAR SEMICOMMA .)
+    PRINT           reduce using rule 43 (fcall -> ID LPAR list_exp RPAR SEMICOMMA .)
+    WHILE           reduce using rule 43 (fcall -> ID LPAR list_exp RPAR SEMICOMMA .)
+    VAR             reduce using rule 43 (fcall -> ID LPAR list_exp RPAR SEMICOMMA .)
+    RBRACE          reduce using rule 43 (fcall -> ID LPAR list_exp RPAR SEMICOMMA .)
+
+
+state 127
+
+    (52) conditions -> IF LPAR expression RPAR body . haselse SEMICOMMA
+    (53) haselse -> . ELSE body
+    (54) haselse -> . EMPTY
+    (71) EMPTY -> .
+
+    ELSE            shift and go to state 134
+    SEMICOMMA       reduce using rule 71 (EMPTY -> .)
+
+    haselse                        shift and go to state 133
+    EMPTY                          shift and go to state 135
 
 state 128
 
-    (52) haselse -> EMPTY .
+    (55) imprimir -> PRINT LPAR lst_printing_options RPAR SEMICOMMA .
 
-    SEMICOMMA       reduce using rule 52 (haselse -> EMPTY .)
+    ID              reduce using rule 55 (imprimir -> PRINT LPAR lst_printing_options RPAR SEMICOMMA .)
+    IF              reduce using rule 55 (imprimir -> PRINT LPAR lst_printing_options RPAR SEMICOMMA .)
+    PRINT           reduce using rule 55 (imprimir -> PRINT LPAR lst_printing_options RPAR SEMICOMMA .)
+    WHILE           reduce using rule 55 (imprimir -> PRINT LPAR lst_printing_options RPAR SEMICOMMA .)
+    VAR             reduce using rule 55 (imprimir -> PRINT LPAR lst_printing_options RPAR SEMICOMMA .)
+    RBRACE          reduce using rule 55 (imprimir -> PRINT LPAR lst_printing_options RPAR SEMICOMMA .)
 
 
 state 129
 
-    (50) conditions -> IF LPAR expression RPAR body haselse SEMICOMMA .
+    (56) lst_printing_options -> CTE_STRING COMMA lst_printing_options .
 
-    ID              reduce using rule 50 (conditions -> IF LPAR expression RPAR body haselse SEMICOMMA .)
-    IF              reduce using rule 50 (conditions -> IF LPAR expression RPAR body haselse SEMICOMMA .)
-    PRINT           reduce using rule 50 (conditions -> IF LPAR expression RPAR body haselse SEMICOMMA .)
-    VAR             reduce using rule 50 (conditions -> IF LPAR expression RPAR body haselse SEMICOMMA .)
-    RBRACE          reduce using rule 50 (conditions -> IF LPAR expression RPAR body haselse SEMICOMMA .)
+    RPAR            reduce using rule 56 (lst_printing_options -> CTE_STRING COMMA lst_printing_options .)
 
 
 state 130
 
-    (51) haselse -> ELSE body .
+    (58) lst_printing_options -> expression COMMA lst_printing_options .
 
-    SEMICOMMA       reduce using rule 51 (haselse -> ELSE body .)
+    RPAR            reduce using rule 58 (lst_printing_options -> expression COMMA lst_printing_options .)
+
+
+state 131
+
+    (60) lst_printing_options -> vars COMMA lst_printing_options .
+
+    RPAR            reduce using rule 60 (lst_printing_options -> vars COMMA lst_printing_options .)
+
+
+state 132
+
+    (42) cycle -> WHILE body DO LPAR expression . RPAR SEMICOMMA
+
+    RPAR            shift and go to state 136
+
+
+state 133
+
+    (52) conditions -> IF LPAR expression RPAR body haselse . SEMICOMMA
+
+    SEMICOMMA       shift and go to state 137
+
+
+state 134
+
+    (53) haselse -> ELSE . body
+    (6) body -> . LBRACE statment RBRACE
+
+    LBRACE          shift and go to state 40
+
+    body                           shift and go to state 138
+
+state 135
+
+    (54) haselse -> EMPTY .
+
+    SEMICOMMA       reduce using rule 54 (haselse -> EMPTY .)
+
+
+state 136
+
+    (42) cycle -> WHILE body DO LPAR expression RPAR . SEMICOMMA
+
+    SEMICOMMA       shift and go to state 139
+
+
+state 137
+
+    (52) conditions -> IF LPAR expression RPAR body haselse SEMICOMMA .
+
+    ID              reduce using rule 52 (conditions -> IF LPAR expression RPAR body haselse SEMICOMMA .)
+    IF              reduce using rule 52 (conditions -> IF LPAR expression RPAR body haselse SEMICOMMA .)
+    PRINT           reduce using rule 52 (conditions -> IF LPAR expression RPAR body haselse SEMICOMMA .)
+    WHILE           reduce using rule 52 (conditions -> IF LPAR expression RPAR body haselse SEMICOMMA .)
+    VAR             reduce using rule 52 (conditions -> IF LPAR expression RPAR body haselse SEMICOMMA .)
+    RBRACE          reduce using rule 52 (conditions -> IF LPAR expression RPAR body haselse SEMICOMMA .)
+
+
+state 138
+
+    (53) haselse -> ELSE body .
+
+    SEMICOMMA       reduce using rule 53 (haselse -> ELSE body .)
+
+
+state 139
+
+    (42) cycle -> WHILE body DO LPAR expression RPAR SEMICOMMA .
+
+    ID              reduce using rule 42 (cycle -> WHILE body DO LPAR expression RPAR SEMICOMMA .)
+    IF              reduce using rule 42 (cycle -> WHILE body DO LPAR expression RPAR SEMICOMMA .)
+    PRINT           reduce using rule 42 (cycle -> WHILE body DO LPAR expression RPAR SEMICOMMA .)
+    WHILE           reduce using rule 42 (cycle -> WHILE body DO LPAR expression RPAR SEMICOMMA .)
+    VAR             reduce using rule 42 (cycle -> WHILE body DO LPAR expression RPAR SEMICOMMA .)
+    RBRACE          reduce using rule 42 (cycle -> WHILE body DO LPAR expression RPAR SEMICOMMA .)
 
 WARNING: 
 WARNING: Conflicts:
 WARNING: 
 WARNING: shift/reduce conflict for ID in state 8 resolved as shift
 WARNING: shift/reduce conflict for COMMA in state 8 resolved as shift
-WARNING: shift/reduce conflict for ID in state 58 resolved as shift
-WARNING: shift/reduce conflict for CTE_INT in state 58 resolved as shift
-WARNING: shift/reduce conflict for CTE_FLOAT in state 58 resolved as shift
-WARNING: shift/reduce conflict for ID in state 59 resolved as shift
-WARNING: shift/reduce conflict for CTE_INT in state 59 resolved as shift
-WARNING: shift/reduce conflict for CTE_FLOAT in state 59 resolved as shift
-WARNING: shift/reduce conflict for ID in state 60 resolved as shift
-WARNING: shift/reduce conflict for CTE_INT in state 60 resolved as shift
-WARNING: shift/reduce conflict for CTE_FLOAT in state 60 resolved as shift
 WARNING: shift/reduce conflict for ID in state 61 resolved as shift
 WARNING: shift/reduce conflict for CTE_INT in state 61 resolved as shift
 WARNING: shift/reduce conflict for CTE_FLOAT in state 61 resolved as shift
-WARNING: shift/reduce conflict for SEMICOMMA in state 64 resolved as shift
-WARNING: shift/reduce conflict for PLUS in state 68 resolved as shift
-WARNING: shift/reduce conflict for MINUS in state 68 resolved as shift
-WARNING: shift/reduce conflict for ID in state 71 resolved as shift
-WARNING: shift/reduce conflict for CTE_INT in state 71 resolved as shift
-WARNING: shift/reduce conflict for CTE_FLOAT in state 71 resolved as shift
-WARNING: shift/reduce conflict for ID in state 73 resolved as shift
-WARNING: shift/reduce conflict for CTE_INT in state 73 resolved as shift
-WARNING: shift/reduce conflict for CTE_FLOAT in state 73 resolved as shift
-WARNING: shift/reduce conflict for ID in state 74 resolved as shift
-WARNING: shift/reduce conflict for CTE_INT in state 74 resolved as shift
-WARNING: shift/reduce conflict for CTE_FLOAT in state 74 resolved as shift
+WARNING: shift/reduce conflict for ID in state 62 resolved as shift
+WARNING: shift/reduce conflict for CTE_INT in state 62 resolved as shift
+WARNING: shift/reduce conflict for CTE_FLOAT in state 62 resolved as shift
+WARNING: shift/reduce conflict for ID in state 63 resolved as shift
+WARNING: shift/reduce conflict for CTE_INT in state 63 resolved as shift
+WARNING: shift/reduce conflict for CTE_FLOAT in state 63 resolved as shift
+WARNING: shift/reduce conflict for ID in state 64 resolved as shift
+WARNING: shift/reduce conflict for CTE_INT in state 64 resolved as shift
+WARNING: shift/reduce conflict for CTE_FLOAT in state 64 resolved as shift
+WARNING: shift/reduce conflict for SEMICOMMA in state 68 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 72 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 72 resolved as shift
+WARNING: shift/reduce conflict for ID in state 75 resolved as shift
+WARNING: shift/reduce conflict for CTE_INT in state 75 resolved as shift
+WARNING: shift/reduce conflict for CTE_FLOAT in state 75 resolved as shift
 WARNING: shift/reduce conflict for ID in state 77 resolved as shift
 WARNING: shift/reduce conflict for CTE_INT in state 77 resolved as shift
 WARNING: shift/reduce conflict for CTE_FLOAT in state 77 resolved as shift
-WARNING: shift/reduce conflict for ID in state 79 resolved as shift
-WARNING: shift/reduce conflict for CTE_INT in state 79 resolved as shift
-WARNING: shift/reduce conflict for CTE_FLOAT in state 79 resolved as shift
-WARNING: shift/reduce conflict for ID in state 89 resolved as shift
-WARNING: shift/reduce conflict for CTE_INT in state 89 resolved as shift
-WARNING: shift/reduce conflict for CTE_FLOAT in state 89 resolved as shift
-WARNING: shift/reduce conflict for ID in state 90 resolved as shift
-WARNING: shift/reduce conflict for CTE_INT in state 90 resolved as shift
-WARNING: shift/reduce conflict for CTE_FLOAT in state 90 resolved as shift
-WARNING: shift/reduce conflict for ID in state 91 resolved as shift
-WARNING: shift/reduce conflict for CTE_INT in state 91 resolved as shift
-WARNING: shift/reduce conflict for CTE_FLOAT in state 91 resolved as shift
-WARNING: shift/reduce conflict for ID in state 92 resolved as shift
-WARNING: shift/reduce conflict for CTE_INT in state 92 resolved as shift
-WARNING: shift/reduce conflict for CTE_FLOAT in state 92 resolved as shift
-WARNING: shift/reduce conflict for ID in state 93 resolved as shift
-WARNING: shift/reduce conflict for CTE_INT in state 93 resolved as shift
-WARNING: shift/reduce conflict for CTE_FLOAT in state 93 resolved as shift
+WARNING: shift/reduce conflict for ID in state 78 resolved as shift
+WARNING: shift/reduce conflict for CTE_INT in state 78 resolved as shift
+WARNING: shift/reduce conflict for CTE_FLOAT in state 78 resolved as shift
+WARNING: shift/reduce conflict for ID in state 81 resolved as shift
+WARNING: shift/reduce conflict for CTE_INT in state 81 resolved as shift
+WARNING: shift/reduce conflict for CTE_FLOAT in state 81 resolved as shift
+WARNING: shift/reduce conflict for ID in state 83 resolved as shift
+WARNING: shift/reduce conflict for CTE_INT in state 83 resolved as shift
+WARNING: shift/reduce conflict for CTE_FLOAT in state 83 resolved as shift
+WARNING: shift/reduce conflict for ID in state 94 resolved as shift
+WARNING: shift/reduce conflict for CTE_INT in state 94 resolved as shift
+WARNING: shift/reduce conflict for CTE_FLOAT in state 94 resolved as shift
+WARNING: shift/reduce conflict for ID in state 95 resolved as shift
+WARNING: shift/reduce conflict for CTE_INT in state 95 resolved as shift
+WARNING: shift/reduce conflict for CTE_FLOAT in state 95 resolved as shift
+WARNING: shift/reduce conflict for ID in state 96 resolved as shift
+WARNING: shift/reduce conflict for CTE_INT in state 96 resolved as shift
+WARNING: shift/reduce conflict for CTE_FLOAT in state 96 resolved as shift
+WARNING: shift/reduce conflict for ID in state 97 resolved as shift
+WARNING: shift/reduce conflict for CTE_INT in state 97 resolved as shift
+WARNING: shift/reduce conflict for CTE_FLOAT in state 97 resolved as shift
 WARNING: shift/reduce conflict for ID in state 98 resolved as shift
 WARNING: shift/reduce conflict for CTE_INT in state 98 resolved as shift
 WARNING: shift/reduce conflict for CTE_FLOAT in state 98 resolved as shift
-WARNING: shift/reduce conflict for ID in state 99 resolved as shift
-WARNING: shift/reduce conflict for CTE_INT in state 99 resolved as shift
-WARNING: shift/reduce conflict for CTE_FLOAT in state 99 resolved as shift
-WARNING: shift/reduce conflict for ID in state 109 resolved as shift
-WARNING: shift/reduce conflict for CTE_INT in state 109 resolved as shift
-WARNING: shift/reduce conflict for CTE_FLOAT in state 109 resolved as shift
-WARNING: shift/reduce conflict for ID in state 110 resolved as shift
-WARNING: shift/reduce conflict for CTE_INT in state 110 resolved as shift
-WARNING: shift/reduce conflict for CTE_FLOAT in state 110 resolved as shift
-WARNING: shift/reduce conflict for ID in state 111 resolved as shift
-WARNING: shift/reduce conflict for CTE_INT in state 111 resolved as shift
-WARNING: shift/reduce conflict for CTE_FLOAT in state 111 resolved as shift
+WARNING: shift/reduce conflict for ID in state 103 resolved as shift
+WARNING: shift/reduce conflict for CTE_INT in state 103 resolved as shift
+WARNING: shift/reduce conflict for CTE_FLOAT in state 103 resolved as shift
+WARNING: shift/reduce conflict for ID in state 104 resolved as shift
+WARNING: shift/reduce conflict for CTE_INT in state 104 resolved as shift
+WARNING: shift/reduce conflict for CTE_FLOAT in state 104 resolved as shift
+WARNING: shift/reduce conflict for ID in state 114 resolved as shift
+WARNING: shift/reduce conflict for CTE_INT in state 114 resolved as shift
+WARNING: shift/reduce conflict for CTE_FLOAT in state 114 resolved as shift
+WARNING: shift/reduce conflict for ID in state 115 resolved as shift
+WARNING: shift/reduce conflict for CTE_INT in state 115 resolved as shift
+WARNING: shift/reduce conflict for CTE_FLOAT in state 115 resolved as shift
+WARNING: shift/reduce conflict for ID in state 116 resolved as shift
+WARNING: shift/reduce conflict for CTE_INT in state 116 resolved as shift
+WARNING: shift/reduce conflict for CTE_FLOAT in state 116 resolved as shift
+WARNING: shift/reduce conflict for ID in state 117 resolved as shift
+WARNING: shift/reduce conflict for CTE_INT in state 117 resolved as shift
+WARNING: shift/reduce conflict for CTE_FLOAT in state 117 resolved as shift

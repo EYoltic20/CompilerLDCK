@@ -2,8 +2,16 @@ program test;
 
 void valer(){
     var a, b, c : int;
+    var mausaurio : int;
+    mausaurio = 20;
+    
     a = 1;
+    b = a+3*(5-2);
+    print(mausaurio);
     print ("hola");
+    while{
+        mausaurio = mausaurio - 1;
+    }do(mausaurio>10);
 };
 
 end

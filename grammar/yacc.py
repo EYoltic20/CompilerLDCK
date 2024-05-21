@@ -6,8 +6,38 @@ from direccionfunc import DirectorioFunciones
 directorio = DirectorioFunciones()
 stack_funciones = []  # Pila para manejar el contexto de funciones
 stack_vars={}
-stack_quadruplos=[]
 
+# Lista para almacenar los cuádruplos
+cuadruplos = []
+
+# Contador de temporales
+temp_count = 0
+def printpatotriste(error):
+    print(
+        f'''     
+░░░░░▄█████▄░░░╔═════
+░░░█▀█▄▄█▄▄█▀█░║ {error}
+░░░▐▄███▒███▄▌═╩═════
+░░░░▀██▀▀▀██▀░░░░░░░░
+░░░░░▐█████▌░░░░░░░░░
+
+'''
+    )
+def printpato():
+    print(
+        '''     __
+ ___( o)> cuack bien 
+ \ <_. )
+  `---'                     
+                                                  
+                                                  
+'''
+    )
+def new_temp():
+    global temp_count
+    temp = f't{temp_count}'
+    temp_count += 1
+    return temp
 
 direcciones_memoria = {
     'int': 1000,
@@ -39,7 +69,7 @@ precedence = (
 def p_empezar(p):
     'empezar : PROGRAM ID SEMICOMMA  var_or_func  END'
     
-    print("Todo perfect")
+    printpato()
     # p[0]=(p[1],p[2],p[3],p[4],p[5],p[6],p[7])
     
 #  AQUI AGREGAMOS PARA PODER ASSIGNAR LA VARIABLES GLOBALES
@@ -76,6 +106,8 @@ def p_statement(p):
                  | fcall statment             
                  | imprimir statment
                  | imprimir
+                 | cycle statment
+                 | cycle
                  | vars
                  | vars statment'''
     # p[0] = p[1]
@@ -91,12 +123,19 @@ def p_assign(p):
         stack_vars[nombre_variable]["assign"] = expresion
     else:
         raise Exception(f"Variable {nombre_variable} no ha sido declarada linea ")
+    # AQUI ASIGNAMOS EL PRIMER CUADRUPLO , SIN EMBARGO ESTE NO TIENE PREDESEZOR AL DECLARAR VARIABLES
+    
+    cuadruplos.append(('=',p[3],None,p[1]))
+    
+    
     
 
 def p_cte(p):
     '''cte : CTE_INT
            | CTE_FLOAT'''
+# Asignamos el valor al token 
     p[0] = p[1]
+
 
 def p_funcs(p):
     'funcs : VOID ID LPAR func_vars RPAR   body  SEMICOMMA'
@@ -120,6 +159,9 @@ def p_funcs(p):
             
     stack_vars.clear()
     stack_funciones.append(nombre_funcion)
+    directorio.funciones[nombre_funcion]['cuadruplos_inicio'] = cuadruplos
+    # limpeamos los cuadruplos para poder continuar con las funciones
+    cuadruplos.clear
     
     
     
@@ -140,7 +182,13 @@ def p_func_vars(p):
 
 def p_expression(p):
     'expression : exp op'
-    # p[0]=(p[1],p[2])
+    
+    # ponemos la condicion de que p[2] no sea cero para poder asignarle el token y si no le asignamos la expresion a otro token
+    if len(p) == 3 and p[2] is not None:
+        p[0] = p[2]
+    else:
+        p[0] = p[1]
+
 
 def p_op(p):
     '''op : GT exp
@@ -149,31 +197,51 @@ def p_op(p):
           | LTE exp
           | NT exp
           | EMPTY'''
-    # p[0]=p[1]
+    # si no es empty generamos un nuevo cuadruplo
+    if len(p) == 3:
+        temp = new_temp()
+        cuadruplos.append((p[1], p[2], None, temp))
+        p[0] = temp
+    else:
+        p[0] = None
 
 def p_exp(p):
     'exp : termino lopb'
-    # p[0]=(p[1],p[2])
+    # ausi el token ta tiene termino 
+    if len(p) == 3 and p[2] is not None:
+        temp = new_temp()
+        cuadruplos.append((p[2][0], p[1], p[2][1], temp))
+        p[0] = temp
+    else:
+        p[0] = p[1]
 
 def p_lopb(p):
     '''lopb : PLUS termino
             | MINUS termino
             | EMPTY'''
-    # if(p[1] == '+'):p[0]= +p[2]
-    # if(p[1] == '-'):p[0]= -p[2]
-    # else:pass
+    if len(p) == 3:
+        p[0] = (p[1], p[2])
+    else:
+        p[0] = None
 
 def p_termino(p):
     'termino : factor lopa'
-    # p[0]=(p[1],p[2])
+    if len(p) == 3 and p[2] is not None:
+        temp = new_temp()
+        cuadruplos.append((p[2][0], p[1], p[2][1], temp))
+        p[0] = temp
+    else:
+        p[0] = p[1]
 
 def p_lopa(p):
     '''lopa : TIMES factor
             | DIVIDE factor
             | EMPTY'''
-    # if(p[1] == '*'):p[0]= +p[2]
-    # if(p[1] == '/'):p[0]= -p[2]
-    # else:pass
+    if len(p) == 3:
+        p[0] = (p[1], p[2])
+    else:
+        p[0] = None
+
     
 def p_cycle(p):
     'cycle : WHILE body DO LPAR expression RPAR SEMICOMMA'
@@ -196,12 +264,15 @@ def p_factor(p):
     '''factor : LPAR expression RPAR
               | lopb id_cte
               | id_cte'''
-    # if len(p) == 4:
-    #     p[0] = (p[1],p[2],p[4])
-    # elif(len(p)==3):
-    #     p[0] = (p[1],p[2])
-    # else:
-    #     pass
+    if len(p) == 4:
+            p[0] = p[2]
+    elif len(p) == 3:
+        temp = new_temp()
+        cuadruplos.append((p[1][0], p[1][1], p[2], temp))
+        p[0] = temp
+    else:
+        p[0] = p[1]
+    
 def p_id_cte(p):
     '''id_cte : ID
               | cte'''
@@ -249,31 +320,20 @@ def p_lst_var(p):
             stack_vars[var]=hash
         
         
-    # if len(p)!=0:
-    #     if stack_funciones:
-            
-    #         nombre_funcion_actual = stack_funciones.pop()
-    #         tipo = p[3]
-    #         for var in p[1]:
-    #             direccion_memoria = get_direccion_memoria(tipo)
-    #             directorio.agregar_variable(nombre_funcion_actual, var, tipo, direccion_memoria)
-    #     else:
-    #         print(f"algo anda mal stack funciones: {stack_funciones}") 
+
 
 def p_lst_id(p):
     '''lst_id : ID lst_id
               | COMMA lst_id
               | EMPTY'''
-    # if len(p) == 3:
-    #     p[0] = (p[1],p[2])
-    # else:
-    #     pass
+
     if len(p) == 3:
         p[0] = [p[1]] + p[2]
     elif len(p) == 2:
         p[0] = [p[1]]
     else:
         p[0] = []   
+        
 def p_type(p):
     '''type : INT
             | FLOAT
@@ -286,19 +346,26 @@ def p_empty(p):
 
 def p_error(p):
     if p:
-        print(f"Error de sintaxis en el token {p.value}")
+        
+        printpatotriste(f"Error de sintaxis en el token {p.value}")
     else:
         print("Error de sintaxis en EOF")
 
 
 # Construir el parser
 
+# Función para imprimir los cuádruplos
+def print_cuadruplos():
+    for idx, cuad in enumerate(cuadruplos):
+        print(f'{idx}: {cuad}')
+        
 namef = "test.txt"
 file = open(namef,'r')
 s = file.read()
 file.close()
 yacc.yacc()
 result = yacc.parse(s)
+print_cuadruplos()
 print(directorio.funciones)
 
 
