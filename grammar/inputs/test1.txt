@@ -9,14 +9,11 @@ void valer(){
     print(mausaurio);
     print ("hola");
     if(a<b){
-        print("tec odio");
+        print("no odio");
     };
-     while(a<b) do{
-       print("TEC odio");
-       b = b - 1;
+    while(mausaurio>10) do{
+        mausaurio = mausaurio - 1;
     };
-
-  
 };
 
 end

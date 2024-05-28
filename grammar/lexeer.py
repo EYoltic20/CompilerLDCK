@@ -46,8 +46,8 @@ tokens = [
     'CTE_FLOAT',
     'CTE_INT',
     'CTE_STRING',
-    'CTE_BOOL'
-    # 'POINT'
+    'CTE_BOOL',
+    'PUNTO'
 ] + list(RESERVED.values())
 
 t_RPAR = r'\)'
@@ -67,6 +67,7 @@ t_NT = r'!='
 t_EQ = r'='
 t_TIMES = r'\*'
 t_DIVIDE = r'/'
+t_PUNTO=r'\.'
 
 
 t_ignore = ' \t'
@@ -95,7 +96,7 @@ def t_CTE_FLOAT(t):
     t.value = float(t.value)
     return t
 
-# Regular expression for matching newline characters
+
 def t_newLine(t):
     r'\n+'
     t.lexer.lineno += len(t.value)

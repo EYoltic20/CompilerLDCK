@@ -1,0 +1,17 @@
+program test1;
+
+var pickles,pickex2 : float ;
+
+pickex2 = 22.2;
+
+pickles = 3*2 +5.7;
+
+pickles = pickex2 + pickles + 4.7 ;
+
+print(pickles);
+
+if(pickles * 11121 + 100 < 2003 - 299*4){
+    print("eres gey");
+};
+
+end
